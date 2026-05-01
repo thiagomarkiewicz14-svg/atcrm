@@ -24,7 +24,7 @@ export function QuickActionsCard() {
               key={action.to}
               to={action.to}
               className={cn(
-                'group flex min-h-24 flex-col justify-between rounded-2xl border border-border bg-background/35 p-4 transition-all duration-200 hover:border-primary/55 hover:bg-primary/10 active:scale-[0.98]',
+                'group flex min-h-24 flex-col justify-between rounded-2xl border border-border bg-background p-4 transition-colors duration-200 hover:border-primary/35 hover:bg-white',
               )}
             >
               <action.icon className="h-5 w-5 text-primary transition-transform duration-200 group-hover:translate-x-0.5" />

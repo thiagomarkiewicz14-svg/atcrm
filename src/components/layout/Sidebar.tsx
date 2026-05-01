@@ -24,7 +24,7 @@ export function Sidebar() {
             end={item.end}
             className={({ isActive }) =>
               cn(
-                'group flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-medium text-white/78 transition-colors hover:bg-white/8 hover:text-white',
+                'group flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white',
                 isActive && 'bg-primary text-white shadow-sm hover:bg-primary',
               )
             }
@@ -40,7 +40,7 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="mt-auto rounded-2xl bg-white/8 p-4">
+      <div className="mt-auto rounded-2xl bg-white/10 p-4">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/55">AT CRM</p>
         <p className="mt-2 text-sm leading-5 text-white/72">Gestão inteligente para o agronegócio.</p>
       </div>

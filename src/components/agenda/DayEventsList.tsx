@@ -20,7 +20,7 @@ export function DayEventsList({ selectedDate, events }: DayEventsListProps) {
   return (
     <section className="space-y-3">
       <div>
-        <h2 className="text-xl font-black capitalize">{titleFormatter.format(selectedDate)}</h2>
+        <h2 className="text-xl font-semibold capitalize">{titleFormatter.format(selectedDate)}</h2>
         <p className="text-sm font-medium text-muted-foreground">
           {dayEvents.length} compromisso{dayEvents.length === 1 ? '' : 's'} no dia.
         </p>

@@ -72,7 +72,7 @@ function EventDots({ events, isSelected }: { events: AgendaEvent[]; isSelected: 
         />
       ))}
       {events.length > 3 ? (
-        <span className={cn('text-[0.6rem] font-black text-primary', isSelected && 'text-background')}>
+        <span className={cn('text-[0.6rem] font-semibold text-primary', isSelected && 'text-background')}>
           +{events.length - 3}
         </span>
       ) : null}

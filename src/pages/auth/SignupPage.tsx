@@ -48,9 +48,15 @@ export function SignupPage() {
           <p className="text-sm text-muted-foreground">Monte sua base própria e portátil de clientes do agro.</p>
         </CardHeader>
         <CardContent>
-          <form className="space-y-4" onSubmit={handleSubmit}>
-            {error ? <p className="rounded-2xl border border-destructive/25 bg-destructive/10 p-3 text-sm text-destructive">{error}</p> : null}
-            {success ? <p className="rounded-2xl border border-primary/25 bg-primary/10 p-3 text-sm text-primary">{success}</p> : null}
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            {error ? (
+              <p className="rounded-xl border border-destructive/20 bg-destructive/5 p-3 text-sm text-destructive">
+                {error}
+              </p>
+            ) : null}
+            {success ? (
+              <p className="rounded-xl border border-primary/20 bg-primary/5 p-3 text-sm text-primary">{success}</p>
+            ) : null}
 
             <div className="space-y-2">
               <Label>Nome completo</Label>

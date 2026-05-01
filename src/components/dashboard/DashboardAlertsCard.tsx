@@ -72,7 +72,7 @@ function AlertMetric({
   variant: 'warning' | 'muted';
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-background/35 p-4">
+    <div className="rounded-2xl border border-border bg-background p-4">
       <div className="mb-3 flex items-center justify-between gap-2">
         <Icon className="h-4 w-4 text-muted-foreground" />
         <Badge variant={variant === 'warning' ? 'warning' : 'muted'}>{value}</Badge>

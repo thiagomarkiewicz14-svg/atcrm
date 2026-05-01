@@ -29,7 +29,7 @@ export function ErrorState({
   return (
     <div
       className={cn(
-        'flex min-h-40 flex-col items-center justify-center gap-3 rounded-3xl border border-border bg-card p-5 text-center',
+        'flex min-h-40 flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-white p-6 text-center shadow-sm',
         className,
       )}
     >

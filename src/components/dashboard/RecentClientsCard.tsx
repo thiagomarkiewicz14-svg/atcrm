@@ -30,7 +30,7 @@ export function RecentClientsCard({ clients }: RecentClientsCardProps) {
             <Link
               key={client.id}
               to={`/clients/${client.id}`}
-              className="block rounded-2xl border border-border bg-background/35 p-4 transition-colors duration-200 hover:border-primary/55 hover:bg-background/55"
+              className="block rounded-2xl border border-border bg-background p-4 transition-colors duration-200 hover:border-primary/35 hover:bg-white"
             >
               <p className="line-clamp-1 text-sm font-bold">{client.name}</p>
               <p className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">

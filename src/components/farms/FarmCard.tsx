@@ -21,7 +21,7 @@ export function FarmCard({ farm, onEdit, onDelete, isDeleting = false }: FarmCar
       <CardContent className="space-y-4 p-4">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 space-y-2">
-            <h3 className="truncate text-lg font-black">{farm.name}</h3>
+            <h3 className="truncate text-lg font-semibold">{farm.name}</h3>
             {location ? (
               <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4 shrink-0 text-primary" />
@@ -32,7 +32,7 @@ export function FarmCard({ farm, onEdit, onDelete, isDeleting = false }: FarmCar
           <Badge variant="secondary">{formatArea(farm.total_area)}</Badge>
         </div>
 
-        <div className="space-y-2 rounded-2xl border border-border bg-background/35 p-3 text-sm">
+        <div className="space-y-2 rounded-2xl border border-border bg-background p-3 text-sm">
           {farm.main_crops.length > 0 ? (
             <p className="flex items-start gap-2 text-muted-foreground">
               <Rows3 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />

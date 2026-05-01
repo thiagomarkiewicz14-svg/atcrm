@@ -23,7 +23,7 @@ export function ClientsWithoutRecentVisitCard({ clients }: ClientsWithoutRecentV
           </p>
         ) : (
           clients.map((item) => (
-            <div key={item.client.id} className="rounded-2xl border border-border bg-background/35 p-4">
+            <div key={item.client.id} className="rounded-2xl border border-border bg-background p-4">
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <Link
