@@ -4,6 +4,7 @@ import { DashboardAlertsCard } from '@/components/dashboard/DashboardAlertsCard'
 import { DashboardKpiGrid } from '@/components/dashboard/DashboardKpiGrid';
 import { QuickActionsCard } from '@/components/dashboard/QuickActionsCard';
 import { RecentClientsCard } from '@/components/dashboard/RecentClientsCard';
+import { SmartRouteCard } from '@/components/dashboard/SmartRouteCard';
 import { TodayAgendaCard } from '@/components/dashboard/TodayAgendaCard';
 import { UpcomingVisitsCard } from '@/components/dashboard/UpcomingVisitsCard';
 import { ErrorState } from '@/components/shared/ErrorState';
@@ -70,6 +71,11 @@ export function DashboardPage() {
   }
 
   const firstName = profileQuery.data?.full_name?.split(' ')[0];
+  const alerts = alertsQuery.data ?? {
+    unreadNotificationsCount: 0,
+    activeNotificationsCount: 0,
+    overdueNextVisits: [],
+  };
 
   return (
     <div className="space-y-6">
@@ -100,15 +106,13 @@ export function DashboardPage() {
 
       <TodayAgendaCard events={todayAgendaQuery.data ?? []} />
 
-      <DashboardAlertsCard
-        alerts={
-          alertsQuery.data ?? {
-            unreadNotificationsCount: 0,
-            activeNotificationsCount: 0,
-            overdueNextVisits: [],
-          }
-        }
+      <SmartRouteCard
+        clientsWithoutRecentVisit={clientsWithoutRecentVisitQuery.data ?? []}
+        recentClients={recentClientsQuery.data ?? []}
+        overdueNextVisits={alerts.overdueNextVisits}
       />
+
+      <DashboardAlertsCard alerts={alerts} />
 
       <UpcomingVisitsCard events={upcomingWeekAgendaQuery.data ?? []} />
 
