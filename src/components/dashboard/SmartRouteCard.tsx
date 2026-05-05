@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom';
+import type { KeyboardEvent } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, MapPinned, Navigation, Route } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -65,14 +66,28 @@ export function SmartRouteCard({
 }
 
 function SmartRouteItem({ position, suggestion }: { position: number; suggestion: RouteSuggestion }) {
-  const actionHref =
-    suggestion.action === 'start_visit'
-      ? `/visits/new?clientId=${suggestion.clientId}`
-      : `/clients/${suggestion.clientId}`;
+  const navigate = useNavigate();
+  const clientHref = `/clients/${suggestion.clientId}`;
+  const visitHref = `/visits/new?clientId=${suggestion.clientId}`;
+  const actionHref = suggestion.action === 'start_visit' ? visitHref : clientHref;
   const actionLabel = suggestion.action === 'start_visit' ? 'Iniciar visita' : 'Abrir cliente';
+  const openClient = () => navigate(clientHref);
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openClient();
+    }
+  };
 
   return (
-    <div className="rounded-lg border-2 border-[#1B4332]/20 bg-background p-4">
+    <div
+      role="link"
+      tabIndex={0}
+      onClick={openClient}
+      onKeyDown={handleKeyDown}
+      className="cursor-pointer rounded-lg border-2 border-[#1B4332]/20 bg-background p-4 transition-all duration-150 hover:border-[#1B4332]/40 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1B4332]/30"
+      aria-label={`Abrir cliente ${suggestion.clientName}`}
+    >
       <div className="flex items-start gap-3">
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#1B4332] text-sm font-black text-white">
           {position}
@@ -115,8 +130,11 @@ function SmartRouteItem({ position, suggestion }: { position: number; suggestion
             </span>
             <Link
               to={actionHref}
+              onClick={(event) => {
+                event.stopPropagation();
+              }}
               className={cn(
-                'inline-flex min-h-9 items-center justify-center gap-2 rounded-lg px-3 text-xs font-black uppercase tracking-[0.08em] transition-colors duration-150',
+                'inline-flex min-h-9 cursor-pointer items-center justify-center gap-2 rounded-lg px-3 text-xs font-black uppercase tracking-[0.08em] transition-colors duration-150',
                 suggestion.action === 'start_visit'
                   ? 'bg-[#1B4332] text-white hover:bg-[#0F2D22]'
                   : 'border-2 border-[#1B4332] text-[#1B4332] hover:bg-[#1B4332] hover:text-white',
