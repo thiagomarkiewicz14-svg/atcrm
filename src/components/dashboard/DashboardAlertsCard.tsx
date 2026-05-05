@@ -17,19 +17,37 @@ export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
   const isCritical = hasOverdueVisits || hasNotifications;
 
   return (
-    <Card className={isCritical ? 'border-[#C53030] bg-[#C53030] text-white' : 'border-[#1B4332] bg-[#F3F5F0]'}>
-      <CardHeader>
+    <Card
+      className="bg-white border-[#E8D5D5]"
+      style={isCritical ? { borderLeft: '4px solid #C53030' } : { borderLeft: '4px solid #1B4332' }}
+    >
+      <CardHeader className="pb-3">
         <div className="flex items-center justify-between gap-3">
-          <CardTitle>{isCritical ? 'Atenção imediata' : 'Atenção'}</CardTitle>
+          <div className="flex items-center gap-2">
+            <AlertTriangle
+              className={isCritical ? 'h-4 w-4 text-[#C53030]' : 'h-4 w-4 text-[#1B4332]'}
+            />
+            <CardTitle className="text-[#1B4332]">
+              {isCritical ? 'Atenção imediata' : 'Atenção'}
+            </CardTitle>
+            {isCritical && (
+              <span className="inline-flex items-center rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest bg-[#FEF2F2] text-[#C53030] border border-[#FECACA]">
+                {(alerts.unreadNotificationsCount + alerts.activeNotificationsCount +
+                  alerts.overdueNextVisits.length)} alertas
+              </span>
+            )}
+          </div>
           <Link
             to="/notifications"
-            className={isCritical ? 'text-xs font-black uppercase tracking-[0.08em] text-white hover:underline' : 'text-xs font-black uppercase tracking-[0.08em] text-primary hover:underline'}
+            className="text-xs font-black uppercase tracking-[0.08em] text-[#1B4332] hover:underline"
           >
             Alertas
           </Link>
         </div>
       </CardHeader>
+
       <CardContent className="space-y-4">
+        {/* ── Métricas ── */}
         <div className="grid grid-cols-2 gap-3">
           <AlertMetric
             icon={Bell}
@@ -45,18 +63,30 @@ export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
           />
         </div>
 
+        {/* ── Estado vazio ── */}
         {!hasNotifications && !hasOverdueVisits ? (
-          <p className="rounded-lg border-2 border-[#1B4332]/20 bg-background p-4 text-sm font-medium text-muted-foreground">
+          <p className="rounded-lg border-2 border-[#1B4332]/20 bg-[#F5F0E8] p-4 text-sm font-medium text-muted-foreground">
             Sem risco operacional pendente agora.
           </p>
         ) : null}
 
+        {/* ── Visitas atrasadas ── */}
         {hasOverdueVisits ? (
-          <div className="space-y-3">
-            <p className="text-xs font-black uppercase tracking-[0.1em] text-white/80">Visitas atrasadas</p>
-            {alerts.overdueNextVisits.map((event) => (
-              <DashboardAgendaItem key={event.id} event={event} />
-            ))}
+          <div className="space-y-2">
+            <p className="text-xs font-black uppercase tracking-[0.1em] text-[#C53030]">
+              Visitas atrasadas
+            </p>
+            <div className="space-y-2">
+              {alerts.overdueNextVisits.map((event) => (
+                <div
+                  key={event.id}
+                  className="rounded-lg border border-[#F0EDE8] bg-[#FAFAFA]"
+                  style={{ borderLeft: '3px solid #C53030' }}
+                >
+                  <DashboardAgendaItem event={event} />
+                </div>
+              ))}
+            </div>
           </div>
         ) : null}
       </CardContent>
@@ -76,12 +106,22 @@ function AlertMetric({
   critical: boolean;
 }) {
   return (
-    <div className={critical ? 'rounded-lg border-2 border-white/30 bg-white/10 p-4' : 'rounded-lg border-2 border-[#1B4332]/20 bg-background p-4'}>
+    <div className={
+      critical
+        ? 'rounded-lg border border-[#FECACA] bg-[#FEF2F2] p-4'
+        : 'rounded-lg border-2 border-[#1B4332]/20 bg-[#F5F0E8] p-4'
+    }>
       <div className="mb-3 flex items-center justify-between gap-2">
-        <Icon className={critical ? 'h-4 w-4 text-white' : 'h-4 w-4 text-primary'} />
-        <Badge variant={critical ? 'info' : 'muted'}>{value}</Badge>
+        <Icon className={critical ? 'h-4 w-4 text-[#C53030]' : 'h-4 w-4 text-[#1B4332]'} />
+        <Badge variant={critical ? 'warning' : 'muted'}>{value}</Badge>
       </div>
-      <p className={critical ? 'text-xs font-black uppercase tracking-[0.08em] text-white/75' : 'text-xs font-black uppercase tracking-[0.08em] text-muted-foreground'}>{label}</p>
+      <p className={
+        critical
+          ? 'text-xs font-black uppercase tracking-[0.08em] text-[#C53030]'
+          : 'text-xs font-black uppercase tracking-[0.08em] text-muted-foreground'
+      }>
+        {label}
+      </p>
     </div>
   );
 }
