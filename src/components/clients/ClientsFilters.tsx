@@ -15,7 +15,7 @@ interface ClientsFiltersProps {
 }
 
 const selectClassName =
-  'h-11 w-full rounded-xl border border-input bg-white px-3 text-sm text-foreground shadow-sm outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-ring/15';
+  'h-11 w-full rounded-lg border-2 border-input bg-white px-3 text-sm text-foreground shadow-none outline-none transition-colors duration-150 focus:border-primary focus:ring-2 focus:ring-ring/20';
 
 export function ClientsFilters({
   search,
@@ -34,7 +34,7 @@ export function ClientsFilters({
   };
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 rounded-xl border-2 border-[#1B4332]/20 bg-[#F3F5F0] p-3">
       <div className="relative">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <Input

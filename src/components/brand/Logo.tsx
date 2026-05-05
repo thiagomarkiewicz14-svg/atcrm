@@ -11,7 +11,7 @@ function FieldRowsIcon({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        'relative inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/15 bg-white/10',
+        'relative inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-white/10',
         className,
       )}
       aria-hidden="true"

@@ -70,12 +70,13 @@ export function ProfilePage() {
 
   return (
     <div className="space-y-5">
-      <section className="flex items-start justify-between gap-4 rounded-2xl border border-border bg-white p-6 shadow-sm">
+      <section className="flex items-start justify-between gap-4 rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
         <div className="min-w-0">
-          <h1 className="text-3xl font-semibold leading-tight">Perfil</h1>
-          <p className="mt-2 truncate text-sm text-muted-foreground">{user?.email}</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Operador</p>
+          <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Perfil</h1>
+          <p className="mt-2 truncate text-sm font-medium text-white/70">{user?.email}</p>
         </div>
-        <Link to="/settings" className={buttonVariants({ variant: 'outline', size: 'sm' })}>
+        <Link to="/settings" className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}>
           <Settings className="h-4 w-4" />
           Configurações
         </Link>

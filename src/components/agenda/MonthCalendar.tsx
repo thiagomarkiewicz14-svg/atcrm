@@ -22,7 +22,7 @@ export function MonthCalendar({ currentDate, selectedDate, events, onSelectDate 
   const today = new Date();
 
   return (
-    <div className="rounded-2xl border border-border bg-white p-2 shadow-sm">
+    <div className="rounded-xl border-2 border-[#1B4332]/25 bg-[#F3F5F0] p-2">
       <div className="mb-1 grid grid-cols-7 gap-1">
         {weekHeaderDays.map((day) => (
           <span key={day.toISOString()} className="py-2 text-center text-xs font-bold uppercase text-muted-foreground">
@@ -45,15 +45,15 @@ export function MonthCalendar({ currentDate, selectedDate, events, onSelectDate 
               type="button"
               onClick={() => onSelectDate(day)}
               className={cn(
-                'flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl px-1 py-1 text-center transition-colors duration-200 hover:bg-background',
+                'flex min-h-14 flex-col items-center justify-center gap-1 rounded-lg border-2 border-transparent px-1 py-1 text-center transition-colors duration-150 hover:border-[#1B4332]/30 hover:bg-background',
                 isOutsideMonth && 'opacity-40',
-                isSelected && 'bg-primary text-primary-foreground opacity-100 shadow-sm hover:bg-primary',
+                isSelected && 'border-[#1B4332] bg-[#1B4332] text-white opacity-100 hover:bg-[#1B4332]',
               )}
             >
               <span
                 className={cn(
-                  'flex h-7 w-7 items-center justify-center rounded-lg text-sm font-semibold',
-                  isToday && !isSelected && 'border border-primary/35 bg-primary/10 text-primary',
+                  'flex h-7 w-7 items-center justify-center rounded-md text-sm font-black',
+                  isToday && !isSelected && 'border-2 border-primary bg-primary/10 text-primary',
                 )}
               >
                 {day.getDate()}
@@ -63,7 +63,7 @@ export function MonthCalendar({ currentDate, selectedDate, events, onSelectDate 
                   className={cn(
                     'min-w-5 rounded-full px-1 text-[0.62rem] font-semibold',
                     hasNextVisit ? 'bg-[#ED8936]/10 text-[#B85E1B]' : 'bg-primary/10 text-primary',
-                    isSelected && 'bg-background/20 text-background',
+                    isSelected && 'bg-white/20 text-white',
                   )}
                 >
                   {dayEvents.length}

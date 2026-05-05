@@ -25,15 +25,19 @@ export function ClientsListPage() {
 
   return (
     <div className="space-y-5">
-      <section className="flex items-start justify-between gap-4 rounded-2xl border border-border bg-white p-6 shadow-sm">
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:22px_22px]" />
+        <div className="relative flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-semibold leading-tight">Clientes</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Carteira comercial portátil.</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Carteira de campo</p>
+          <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Clientes</h1>
+          <p className="mt-2 text-sm font-medium text-white/70">Priorize alvos, contatos e oportunidades por praça.</p>
         </div>
-        <Link to="/clients/new" className={buttonVariants({ size: 'sm' })}>
+        <Link to="/clients/new" className={`${buttonVariants({ size: 'sm' })} bg-[#D4A373] text-[#1B4332] hover:bg-white`}>
           <Plus className="h-4 w-4" />
-          Novo
+          Cadastrar alvo
         </Link>
+        </div>
       </section>
 
       <ClientsFilters
@@ -53,12 +57,12 @@ export function ClientsListPage() {
 
       {clientsQuery.isSuccess && clientsQuery.data.length === 0 ? (
         <EmptyState
-          title="Nenhum cliente encontrado"
-          description="Ajuste os filtros ou cadastre um novo cliente."
+          title="Nenhum alvo na carteira"
+          description="Ajuste os filtros ou cadastre um cliente para abrir rota."
           action={
             <Link to="/clients/new" className={buttonVariants({ size: 'sm' })}>
               <Plus className="h-4 w-4" />
-              Novo cliente
+              Cadastrar alvo
             </Link>
           }
         />

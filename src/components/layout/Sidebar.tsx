@@ -11,12 +11,12 @@ export function Sidebar() {
   const unreadCount = unreadCountQuery.data ?? 0;
 
   return (
-    <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 flex-col bg-[#1B4332] px-5 py-6 text-white md:flex">
+    <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 flex-col bg-[#1B4332] px-4 py-5 text-white md:flex">
       <NavLink to="/" className="mb-8 flex items-center gap-3 rounded-2xl px-2 py-1" aria-label="AT CRM">
         <Logo variant="full" className="text-white [&_span:last-child_span:last-child]:text-white/65" />
       </NavLink>
 
-      <nav className="space-y-1">
+      <nav className="space-y-2">
         {navItems.map((item) => (
           <NavLink
             key={item.to}
@@ -24,8 +24,8 @@ export function Sidebar() {
             end={item.end}
             className={({ isActive }) =>
               cn(
-                'group flex min-h-11 items-center gap-3 rounded-xl px-3 text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white',
-                isActive && 'bg-primary text-white shadow-sm hover:bg-primary',
+                'group flex min-h-12 items-center gap-3 rounded-lg border border-transparent px-3 text-xs font-black uppercase tracking-[0.08em] text-white/80 transition-colors hover:border-white/20 hover:bg-white/10 hover:text-white',
+                isActive && 'border-primary bg-primary text-white hover:bg-primary',
               )
             }
           >
@@ -40,9 +40,9 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="mt-auto rounded-2xl bg-white/10 p-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/55">AT CRM</p>
-        <p className="mt-2 text-sm leading-5 text-white/72">Gestão inteligente para o agronegócio.</p>
+      <div className="mt-auto rounded-lg border border-white/20 bg-white/10 p-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">AT CRM</p>
+        <p className="mt-2 text-sm leading-5 text-white/70">Gestão inteligente para o agronegócio.</p>
       </div>
     </aside>
   );

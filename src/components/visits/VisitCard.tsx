@@ -17,7 +17,7 @@ export function VisitCard({ visit, showClient = true }: VisitCardProps) {
 
   return (
     <Link to={`/visits/${visit.id}`} className="group block">
-      <Card className="transition-colors duration-200 group-hover:border-primary/35">
+      <Card className="transition-colors duration-150 group-hover:border-primary/30">
         <CardContent className="space-y-4 p-5">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0 space-y-2">

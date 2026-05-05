@@ -29,13 +29,13 @@ export function ErrorState({
   return (
     <div
       className={cn(
-        'flex min-h-40 flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-white p-6 text-center shadow-sm',
+        'flex min-h-40 flex-col items-center justify-center gap-3 rounded-xl border-2 border-destructive/30 bg-destructive/10 p-6 text-center',
         className,
       )}
     >
       <AlertTriangle className="h-6 w-6 text-destructive" />
       <div className="space-y-1">
-        <h2 className="text-base font-semibold">{title}</h2>
+        <h2 className="text-base font-black uppercase tracking-[0.04em]">{title}</h2>
         <p className="text-sm text-muted-foreground">{getErrorMessage(error)}</p>
       </div>
       {onRetry ? (

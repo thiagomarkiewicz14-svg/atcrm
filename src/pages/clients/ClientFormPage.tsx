@@ -43,10 +43,13 @@ export function ClientFormPage() {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-        <h1 className="text-3xl font-semibold leading-tight">{isEditing ? 'Editar cliente' : 'Novo cliente'}</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          {isEditing ? 'Atualize os dados da carteira.' : 'Cadastre um cliente na sua base pessoal.'}
+      <section className="rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Carteira de campo</p>
+        <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">
+          {isEditing ? 'Editar cliente' : 'Cadastrar alvo'}
+        </h1>
+        <p className="mt-2 text-sm font-medium text-white/70">
+          {isEditing ? 'Atualize os dados de operação.' : 'Crie um ponto de contato para rota e visitas.'}
         </p>
       </section>
 

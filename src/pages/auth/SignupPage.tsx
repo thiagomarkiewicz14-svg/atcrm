@@ -41,21 +41,21 @@ export function SignupPage() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-4 py-10">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <Logo variant="full" className="mb-4" />
-          <CardTitle className="text-2xl">Criar conta</CardTitle>
-          <p className="text-sm text-muted-foreground">Monte sua base própria e portátil de clientes do agro.</p>
+      <Card className="w-full max-w-md overflow-hidden border-[#1B4332] bg-[#F3F5F0]">
+        <CardHeader className="border-b-2 border-[#1B4332] bg-[#1B4332] text-white">
+          <Logo variant="full" className="mb-4 text-white [&_span:first-child]:border-white/20 [&_span:first-child]:bg-white/10 [&_span:last-child_span:last-child]:text-white/65" />
+          <CardTitle className="text-2xl">Criar base de campo</CardTitle>
+          <p className="text-sm font-medium text-white/70">Carteira própria e portátil para operação agro.</p>
         </CardHeader>
         <CardContent>
           <form className="space-y-5" onSubmit={handleSubmit}>
             {error ? (
-              <p className="rounded-xl border border-destructive/20 bg-destructive/5 p-3 text-sm text-destructive">
+              <p className="rounded-lg border-2 border-destructive bg-destructive/10 p-3 text-sm font-semibold text-destructive">
                 {error}
               </p>
             ) : null}
             {success ? (
-              <p className="rounded-xl border border-primary/20 bg-primary/5 p-3 text-sm text-primary">{success}</p>
+              <p className="rounded-lg border-2 border-primary bg-primary/10 p-3 text-sm font-semibold text-primary">{success}</p>
             ) : null}
 
             <div className="space-y-2">
@@ -87,12 +87,12 @@ export function SignupPage() {
             </div>
 
             <Button type="submit" className="w-full" disabled={isSubmitting}>
-              {isSubmitting ? 'Cadastrando...' : 'Cadastrar'}
+              {isSubmitting ? 'Cadastrando...' : 'Cadastrar operador'}
             </Button>
 
-            <p className="text-sm text-muted-foreground">
+            <p className="border-t-2 border-[#1B4332]/20 pt-4 text-sm text-muted-foreground">
               Já tem conta?{' '}
-              <Link to="/login" className="font-semibold text-primary hover:underline">
+              <Link to="/login" className="font-black uppercase tracking-[0.08em] text-primary hover:underline">
                 Entrar
               </Link>
             </p>

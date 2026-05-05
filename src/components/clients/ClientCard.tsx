@@ -31,13 +31,13 @@ export function ClientCard({ client }: ClientCardProps) {
     : null;
 
   return (
-    <Card className="group transition-colors duration-200 hover:border-primary/35">
+    <Card className="group transition-colors duration-150 hover:border-primary/40">
       <CardContent className="space-y-4 p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 space-y-2">
             <Link
               to={`/clients/${client.id}`}
-              className="block truncate text-lg font-semibold leading-tight transition-colors group-hover:text-primary"
+              className="block truncate text-lg font-black uppercase leading-tight tracking-[0.02em] transition-colors group-hover:text-primary"
             >
               {client.name}
             </Link>
@@ -57,7 +57,7 @@ export function ClientCard({ client }: ClientCardProps) {
         </div>
 
         {client.main_crops.length > 0 ? (
-          <p className="flex items-start gap-2 rounded-2xl border border-border bg-background p-3 text-sm text-muted-foreground">
+          <p className="flex items-start gap-2 rounded-lg border-2 border-[#1B4332]/20 bg-background p-3 text-sm font-medium text-muted-foreground">
             <Rows3 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <span className="line-clamp-2">{client.main_crops.join(', ')}</span>
           </p>

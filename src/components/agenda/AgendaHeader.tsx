@@ -23,14 +23,15 @@ export function AgendaHeader({
   onModeChange,
 }: AgendaHeaderProps) {
   return (
-    <div className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+    <div className="rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <h1 className="text-3xl font-semibold leading-tight">Agenda</h1>
-          <p className="mt-1 truncate text-sm font-medium capitalize text-muted-foreground">{title}</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Rota de campo</p>
+          <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Agenda</h1>
+          <p className="mt-1 truncate text-sm font-medium capitalize text-white/70">{title}</p>
         </div>
 
-        <Button type="button" variant="outline" size="sm" onClick={onToday}>
+        <Button type="button" variant="secondary" size="sm" onClick={onToday} className="border-white bg-white text-[#1B4332] hover:bg-[#D4A373]">
           Hoje
         </Button>
       </div>
@@ -45,7 +46,7 @@ export function AgendaHeader({
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 rounded-xl border border-border bg-background p-1">
+        <div className="grid grid-cols-2 rounded-lg border-2 border-white/20 bg-white/10 p-1">
           <ModeButton isActive={mode === 'week'} onClick={() => onModeChange('week')}>
             Semana
           </ModeButton>
@@ -71,8 +72,8 @@ function ModeButton({
     <button
       type="button"
       className={cn(
-        'h-9 rounded-lg px-3 text-sm font-semibold text-muted-foreground transition-colors duration-200',
-        isActive && 'bg-primary text-primary-foreground shadow-sm',
+        'h-9 rounded-md px-3 text-xs font-black uppercase tracking-[0.08em] text-white/65 transition-colors duration-150',
+        isActive && 'bg-[#D4A373] text-[#1B4332]',
       )}
       onClick={onClick}
     >

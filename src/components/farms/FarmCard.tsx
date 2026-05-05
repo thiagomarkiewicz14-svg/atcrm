@@ -17,7 +17,7 @@ export function FarmCard({ farm, onEdit, onDelete, isDeleting = false }: FarmCar
   const location = [farm.city, farm.state].filter(Boolean).join(' / ');
 
   return (
-    <Card className="transition-colors duration-200 hover:border-primary/55">
+    <Card className="transition-colors duration-150 hover:border-primary/50">
       <CardContent className="space-y-4 p-4">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 space-y-2">

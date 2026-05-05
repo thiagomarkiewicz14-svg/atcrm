@@ -72,34 +72,36 @@ export function ClientDetailPage() {
 
   return (
     <div className="space-y-5">
-      <section className="space-y-3 rounded-2xl border border-border bg-white p-6 shadow-sm">
-        <div>
-          <h1 className="text-3xl font-semibold leading-tight">{client.name}</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:22px_22px]" />
+        <div className="relative">
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Cliente em carteira</p>
+          <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">{client.name}</h1>
+          <p className="mt-2 text-sm font-medium text-white/70">
             {[client.city, client.state].filter(Boolean).join(' / ') || 'Localização não informada'}
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="relative mt-4 flex flex-wrap gap-2">
           <Badge>{statusLabels[client.status]}</Badge>
           <Badge variant={client.commercial_potential === 'high' ? 'warning' : 'secondary'}>
             Potencial {potentialLabels[client.commercial_potential]}
           </Badge>
         </div>
 
-        <div className="flex flex-wrap gap-2">
+        <div className="relative mt-4 flex flex-wrap gap-2">
           {whatsappLink ? (
             <a
               href={whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className={buttonVariants({ variant: 'secondary', size: 'sm' })}
+              className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}
             >
               <MessageCircle className="h-4 w-4" />
               WhatsApp
             </a>
           ) : null}
-          <Link to={`/clients/${client.id}/edit`} className={buttonVariants({ variant: 'outline', size: 'sm' })}>
+          <Link to={`/clients/${client.id}/edit`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}>
             <Edit className="h-4 w-4" />
             Editar
           </Link>
@@ -118,7 +120,7 @@ export function ClientDetailPage() {
 
       {deleteClient.isError ? <ErrorState error={deleteClient.error} /> : null}
 
-      <div className="grid grid-cols-3 gap-2 rounded-2xl border border-border bg-card p-1">
+      <div className="grid grid-cols-3 gap-2 rounded-xl border-2 border-[#1B4332]/20 bg-[#F3F5F0] p-1">
         <TabButton isActive={activeTab === 'data'} onClick={() => setActiveTab('data')}>
           Dados
         </TabButton>
@@ -236,7 +238,7 @@ function ClientFarmsTab({ client }: { client: Client }) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-lg font-semibold">Propriedades</h2>
+        <h2 className="text-sm font-black uppercase tracking-[0.1em] text-[#1B4332]">Propriedades</h2>
         <Button type="button" size="sm" onClick={startCreate}>
           <Plus className="h-4 w-4" />
           Nova propriedade
@@ -310,8 +312,8 @@ function TabButton({
       type="button"
       onClick={onClick}
       className={cn(
-        'h-10 rounded-xl px-2 text-xs font-bold text-muted-foreground transition-all duration-200 sm:text-sm',
-        isActive && 'bg-primary text-primary-foreground shadow-sm',
+        'h-10 rounded-lg px-2 text-xs font-black uppercase tracking-[0.06em] text-muted-foreground transition-colors duration-150 sm:text-sm',
+        isActive && 'bg-[#1B4332] text-white',
       )}
     >
       {children}
@@ -322,7 +324,7 @@ function TabButton({
 function InfoRow({ label, value, multiline = false }: { label: string; value: string; multiline?: boolean }) {
   return (
     <div className="grid gap-1 border-b border-border pb-3 last:border-0 last:pb-0 sm:grid-cols-[11rem_1fr]">
-      <dt className="text-sm font-medium text-muted-foreground">{label}</dt>
+      <dt className="text-xs font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</dt>
       <dd className={multiline ? 'whitespace-pre-wrap text-sm' : 'text-sm'}>{value}</dd>
     </div>
   );
@@ -331,7 +333,7 @@ function InfoRow({ label, value, multiline = false }: { label: string; value: st
 function TagList({ label, values }: { label: string; values: string[] }) {
   return (
     <div className="space-y-2">
-      <p className="text-sm font-medium text-muted-foreground">{label}</p>
+      <p className="text-xs font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</p>
       {values.length > 0 ? (
         <div className="flex flex-wrap gap-2">
           {values.map((value) => (

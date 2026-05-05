@@ -44,6 +44,10 @@
 
   body {
     @apply min-h-screen bg-background text-foreground antialiased;
+    background-image:
+      linear-gradient(90deg, rgb(27 67 50 / 0.055) 1px, transparent 1px),
+      linear-gradient(180deg, rgb(45 106 79 / 0.045) 1px, transparent 1px);
+    background-size: 32px 32px;
     font-family:
       Inter, Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
       sans-serif;
@@ -52,7 +56,7 @@
   h1,
   h2,
   h3 {
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
   }
 
   input,

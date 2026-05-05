@@ -72,8 +72,8 @@ export function VisitAttachmentUploader({
       {localError ? <ErrorState error={new Error(localError)} /> : null}
 
       {pendingFiles.length > 0 ? (
-        <div className="space-y-2 rounded-2xl border border-border bg-white p-3 shadow-sm">
-          <p className="text-sm font-medium">Arquivos para enviar ao salvar</p>
+        <div className="space-y-2 rounded-lg border-2 border-[#1B4332]/20 bg-background p-3">
+          <p className="text-xs font-black uppercase tracking-[0.08em]">Arquivos para enviar ao salvar</p>
           {pendingFiles.map((file, index) => (
             <div key={`${file.name}-${file.size}-${index}`} className="flex items-center justify-between gap-3 text-sm">
               <span className="min-w-0 truncate text-muted-foreground">{file.name}</span>

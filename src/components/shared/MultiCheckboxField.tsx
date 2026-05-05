@@ -30,11 +30,11 @@ export function MultiCheckboxField({ label, values, options, onChange, className
   return (
     <div className={cn('space-y-2', className)}>
       <Label>{label}</Label>
-      <div className="grid max-h-52 grid-cols-1 gap-2 overflow-y-auto rounded-2xl border border-input bg-white p-3 shadow-sm sm:grid-cols-2">
+      <div className="grid max-h-52 grid-cols-1 gap-2 overflow-y-auto rounded-lg border-2 border-input bg-white p-3 shadow-none sm:grid-cols-2">
         {normalizedOptions.map((option) => (
           <label
             key={option}
-            className="flex min-h-9 cursor-pointer items-center gap-2 rounded-xl px-2 text-sm transition-colors hover:bg-muted"
+            className="flex min-h-9 cursor-pointer items-center gap-2 rounded-lg px-2 text-sm font-medium transition-colors hover:bg-muted"
           >
             <input
               type="checkbox"

@@ -30,38 +30,51 @@ export function LoginPage() {
   };
 
   return (
-    <main className="grid min-h-screen bg-background lg:grid-cols-[0.95fr_1.05fr]">
-      <section className="hidden min-h-screen flex-col justify-between bg-[#1B4332] p-10 text-white lg:flex">
-        <Logo variant="full" className="text-white [&_span:last-child_span:last-child]:text-white/65" />
+    <main className="grid min-h-screen bg-background lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="relative hidden min-h-screen overflow-hidden bg-[#1B4332] p-10 text-white lg:block">
+        <div className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.38)_1px,transparent_1px)] [background-size:26px_26px]" />
+        <div className="relative flex h-full flex-col justify-between">
+          <Logo variant="full" className="text-white [&_span:first-child]:border-white/20 [&_span:first-child]:bg-white/10 [&_span:last-child_span:last-child]:text-white/65" />
 
-        <div className="max-w-md">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-white/55">AT CRM</p>
-          <h1 className="mt-4 text-4xl font-semibold leading-tight">Gestão inteligente para o agronegócio</h1>
-          <p className="mt-5 text-base leading-7 text-white/72">
-            Uma central profissional para Assistentes Técnicos, RTVs e consultores acompanharem clientes,
-            propriedades e visitas com clareza.
+          <div className="max-w-lg">
+            <p className="text-xs font-black uppercase tracking-[0.22em] text-[#D4A373]">Instrumento de campo</p>
+            <h1 className="mt-5 text-5xl font-black uppercase leading-[0.95] tracking-[0.04em]">AT CRM</h1>
+            <p className="mt-5 max-w-md text-lg font-semibold leading-7 text-white/80">
+              Prioridade, rota, visita e recuperação de carteira para RTVs e consultores no agro.
+            </p>
+
+            <div className="mt-8 grid grid-cols-3 gap-3">
+              {['Carteira', 'Rota', 'Alertas'].map((item) => (
+                <div key={item} className="rounded-lg border-2 border-white/20 bg-white/10 p-3">
+                  <p className="text-[0.68rem] font-black uppercase tracking-[0.12em] text-white/60">{item}</p>
+                  <p className="mt-2 h-1.5 rounded-full bg-[#D4A373]" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="max-w-sm text-xs font-black uppercase tracking-[0.16em] text-white/50">
+            Base própria. Decisão rápida. Ação no campo.
           </p>
         </div>
-
-        <p className="text-sm text-white/55">Tecnologia de campo com base própria e portátil.</p>
       </section>
 
       <section className="flex min-h-screen items-center justify-center px-4 py-10 sm:px-6 lg:px-10">
         <div className="w-full max-w-md">
-          <div className="mb-8 lg:hidden">
-            <Logo variant="full" />
-            <p className="mt-4 text-sm text-muted-foreground">Gestão inteligente para o agronegócio</p>
+          <div className="mb-6 rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-4 text-white lg:hidden">
+            <Logo variant="full" className="text-white [&_span:first-child]:border-white/20 [&_span:first-child]:bg-white/10 [&_span:last-child_span:last-child]:text-white/65" />
+            <p className="mt-4 text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Instrumento de campo</p>
           </div>
 
-          <div className="rounded-2xl border border-border bg-white p-6 shadow-sm sm:p-8">
-            <div className="mb-8">
-              <h2 className="text-2xl font-semibold text-foreground">Entrar</h2>
-              <p className="mt-2 text-sm text-muted-foreground">Acesse sua operação técnica e comercial no campo.</p>
+          <div className="overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#F3F5F0]">
+            <div className="border-b-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Acesso operador</p>
+              <h2 className="mt-2 text-2xl font-black uppercase tracking-[0.04em]">Entrar em campo</h2>
             </div>
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form className="space-y-5 p-5 sm:p-6" onSubmit={handleSubmit}>
               {error ? (
-                <p className="rounded-xl border border-destructive/20 bg-destructive/5 p-3 text-sm text-destructive">
+                <p className="rounded-lg border-2 border-destructive bg-destructive/10 p-3 text-sm font-semibold text-destructive">
                   {error}
                 </p>
               ) : null}
@@ -89,14 +102,14 @@ export function LoginPage() {
               </div>
 
               <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? 'Entrando...' : 'Entrar'}
+                {isSubmitting ? 'Entrando...' : 'Entrar agora'}
               </Button>
 
-              <div className="flex flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:justify-between">
-                <Link to="/signup" className="font-semibold text-primary hover:underline">
+              <div className="flex flex-col gap-2 border-t-2 border-[#1B4332]/20 pt-4 text-sm text-muted-foreground sm:flex-row sm:justify-between">
+                <Link to="/signup" className="font-black uppercase tracking-[0.08em] text-primary hover:underline">
                   Criar conta
                 </Link>
-                <Link to="/forgot-password" className="font-semibold text-primary hover:underline">
+                <Link to="/forgot-password" className="font-black uppercase tracking-[0.08em] text-primary hover:underline">
                   Recuperar senha
                 </Link>
               </div>

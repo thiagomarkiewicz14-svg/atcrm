@@ -31,7 +31,7 @@ const defaultValues: Omit<FarmInsert, 'client_id'> = {
 
 const inputClassName = '';
 const selectClassName =
-  'h-11 w-full rounded-xl border border-input bg-white px-3 text-sm text-foreground shadow-sm outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-ring/15';
+  'h-11 w-full rounded-lg border-2 border-input bg-white px-3 text-sm text-foreground shadow-none outline-none transition-colors duration-150 focus:border-primary focus:ring-2 focus:ring-ring/20';
 
 function toNullable(value: string) {
   const normalized = value.trim();

@@ -60,10 +60,13 @@ export function VisitFormPage() {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-        <h1 className="text-3xl font-semibold leading-tight">{isEditing ? 'Editar visita' : 'Nova visita'}</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Registre o atendimento de campo e deixe o próximo passo agendado.
+      <section className="rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Ação de campo</p>
+        <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">
+          {isEditing ? 'Editar visita' : 'Ir agora'}
+        </h1>
+        <p className="mt-2 text-sm font-medium text-white/70">
+          Registre atendimento, evidências e próximo passo sem perder janela.
         </p>
       </section>
 

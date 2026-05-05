@@ -85,37 +85,38 @@ export function VisitDetailPage() {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-2xl border border-border bg-white p-6 shadow-sm">
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:22px_22px]" />
         <div className="space-y-3">
-          <p className="flex items-center gap-2 text-sm font-semibold text-primary">
+          <p className="relative flex items-center gap-2 text-xs font-black uppercase tracking-[0.1em] text-[#D4A373]">
             <CalendarClock className="h-4 w-4" />
             {formatDateTime(visit.visit_date)}
           </p>
-          <div>
-            <h1 className="text-3xl font-semibold leading-tight">{visit.purpose}</h1>
-            <p className="mt-2 text-sm text-muted-foreground">
+          <div className="relative">
+            <h1 className="text-3xl font-black uppercase leading-tight tracking-[0.04em]">{visit.purpose}</h1>
+            <p className="mt-2 text-sm font-medium text-white/70">
               {visit.clients?.name ?? 'Cliente não informado'}
               {visit.farms?.name ? ` · ${visit.farms.name}` : ''}
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="relative flex flex-wrap gap-2">
             <Badge>{getVisitTypeLabel(visit.visit_type)}</Badge>
             <Badge variant={visit.status === 'completed' ? 'default' : 'secondary'}>
               {getVisitStatusLabel(visit.status)}
             </Badge>
           </div>
 
-          <div className="flex flex-wrap gap-2 pt-2">
-            <Link to={`/visits/${visit.id}/edit`} className={buttonVariants({ variant: 'outline', size: 'sm' })}>
+          <div className="relative flex flex-wrap gap-2 pt-2">
+            <Link to={`/visits/${visit.id}/edit`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}>
               <Edit className="h-4 w-4" />
               Editar
             </Link>
-            <Link to={`/visits/${visit.id}/report`} className={buttonVariants({ variant: 'outline', size: 'sm' })}>
+            <Link to={`/visits/${visit.id}/report`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}>
               <FileText className="h-4 w-4" />
               Relatório
             </Link>
-            <Button type="button" variant="outline" size="sm" onClick={handleDownloadPdf} disabled={isGeneratingPdf}>
+            <Button type="button" variant="secondary" size="sm" onClick={handleDownloadPdf} disabled={isGeneratingPdf} className="border-white bg-white text-[#1B4332] hover:bg-[#D4A373]">
               <Download className="h-4 w-4" />
               {isGeneratingPdf ? 'Gerando...' : 'Baixar PDF'}
             </Button>
@@ -166,14 +167,14 @@ export function VisitDetailPage() {
           <CardTitle>Recomendações</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="whitespace-pre-wrap rounded-2xl border border-border bg-background p-4 text-sm leading-6 text-muted-foreground">
+          <p className="whitespace-pre-wrap rounded-lg border-2 border-[#1B4332]/20 bg-background p-4 text-sm leading-6 text-muted-foreground">
             {visit.recommendations ?? 'Nenhuma recomendação registrada.'}
           </p>
         </CardContent>
       </Card>
 
       {visit.next_visit_at ? (
-        <Card className="border-amber-500/35">
+        <Card className="border-[#ED8936] bg-[#ED8936]/10">
           <CardHeader>
             <CardTitle>Próxima visita</CardTitle>
           </CardHeader>
@@ -203,7 +204,7 @@ export function VisitDetailPage() {
 function InfoRow({ label, value, multiline = false }: { label: string; value: string; multiline?: boolean }) {
   return (
     <div className="grid gap-1 border-b border-border pb-3 last:border-0 last:pb-0 sm:grid-cols-[11rem_1fr]">
-      <dt className="text-sm font-semibold text-muted-foreground">{label}</dt>
+      <dt className="text-xs font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</dt>
       <dd className={multiline ? 'whitespace-pre-wrap text-sm leading-6' : 'text-sm'}>{value}</dd>
     </div>
   );

@@ -30,7 +30,7 @@ interface SettingsFormState extends Required<Omit<UserSettingsUpdate, 'whatsapp_
 }
 
 const selectClassName =
-  'h-11 w-full rounded-xl border border-input bg-white px-3 text-sm text-foreground shadow-sm outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-ring/15 disabled:bg-background disabled:text-muted-foreground';
+  'h-11 w-full rounded-lg border-2 border-input bg-white px-3 text-sm text-foreground shadow-none outline-none transition-colors duration-150 focus:border-primary focus:ring-2 focus:ring-ring/20 disabled:bg-background disabled:text-muted-foreground';
 
 const planLabels: Record<SubscriptionPlan, string> = {
   free: 'Free',
@@ -124,9 +124,10 @@ export function SettingsPage() {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-2xl border border-border bg-white p-6 shadow-sm">
-        <h1 className="text-3xl font-semibold leading-tight">Configurações</h1>
-        <p className="mt-2 text-sm leading-6 text-muted-foreground">
+      <section className="rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Central do operador</p>
+        <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Configurações</h1>
+        <p className="mt-2 text-sm font-medium leading-6 text-white/70">
           Preferências individuais da sua conta no AT CRM.
         </p>
       </section>
@@ -210,11 +211,11 @@ export function SettingsPage() {
               />
             </Field>
 
-            <div className="rounded-2xl border border-border bg-background p-3">
-              <p className="text-sm font-bold">Variáveis disponíveis</p>
+            <div className="rounded-lg border-2 border-[#1B4332]/20 bg-background p-3">
+              <p className="text-xs font-black uppercase tracking-[0.08em]">Variáveis disponíveis</p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {templateVariables.map((variable) => (
-                  <code key={variable} className="rounded-xl border border-border bg-muted px-2 py-1 text-xs">
+                  <code key={variable} className="rounded-md border border-border bg-muted px-2 py-1 text-xs">
                     {variable}
                   </code>
                 ))}
@@ -336,7 +337,7 @@ function ToggleField({
   onChange: (checked: boolean) => void;
 }) {
   return (
-    <label className="flex min-h-12 items-center justify-between gap-3 rounded-2xl border border-border bg-white px-3 py-2 shadow-sm transition-colors hover:border-primary/45">
+    <label className="flex min-h-12 items-center justify-between gap-3 rounded-lg border-2 border-border bg-white px-3 py-2 transition-colors hover:border-primary/40">
       <span className="text-sm font-semibold">{label}</span>
       <input
         type="checkbox"
@@ -350,9 +351,9 @@ function ToggleField({
 
 function ReadonlyValue({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-background p-4">
-      <p className="text-xs font-semibold text-muted-foreground">{label}</p>
-      <p className="mt-1 text-sm font-bold">{value}</p>
+    <div className="rounded-lg border-2 border-[#1B4332]/20 bg-background p-4">
+      <p className="text-xs font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</p>
+      <p className="mt-1 text-sm font-black">{value}</p>
     </div>
   );
 }

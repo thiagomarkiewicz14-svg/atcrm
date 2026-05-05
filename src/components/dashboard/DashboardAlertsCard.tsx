@@ -14,14 +14,18 @@ interface DashboardAlertsCardProps {
 export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
   const hasOverdueVisits = alerts.overdueNextVisits.length > 0;
   const hasNotifications = alerts.unreadNotificationsCount > 0 || alerts.activeNotificationsCount > 0;
+  const isCritical = hasOverdueVisits || hasNotifications;
 
   return (
-    <Card>
+    <Card className={isCritical ? 'border-[#C53030] bg-[#C53030] text-white' : 'border-[#1B4332] bg-[#F3F5F0]'}>
       <CardHeader>
         <div className="flex items-center justify-between gap-3">
-          <CardTitle>Atenção</CardTitle>
-          <Link to="/notifications" className="text-sm font-semibold text-primary hover:underline">
-            Notificações
+          <CardTitle>{isCritical ? 'Atenção imediata' : 'Atenção'}</CardTitle>
+          <Link
+            to="/notifications"
+            className={isCritical ? 'text-xs font-black uppercase tracking-[0.08em] text-white hover:underline' : 'text-xs font-black uppercase tracking-[0.08em] text-primary hover:underline'}
+          >
+            Alertas
           </Link>
         </div>
       </CardHeader>
@@ -31,25 +35,25 @@ export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
             icon={Bell}
             label="Não lidas"
             value={alerts.unreadNotificationsCount}
-            variant={alerts.unreadNotificationsCount > 0 ? 'warning' : 'muted'}
+            critical={isCritical && alerts.unreadNotificationsCount > 0}
           />
           <AlertMetric
             icon={AlertTriangle}
             label="Ativas"
             value={alerts.activeNotificationsCount}
-            variant={alerts.activeNotificationsCount > 0 ? 'warning' : 'muted'}
+            critical={isCritical && alerts.activeNotificationsCount > 0}
           />
         </div>
 
         {!hasNotifications && !hasOverdueVisits ? (
-          <p className="rounded-2xl border border-dashed border-border bg-background/25 p-4 text-sm text-muted-foreground">
-            Nada crítico pendente agora.
+          <p className="rounded-lg border-2 border-[#1B4332]/20 bg-background p-4 text-sm font-medium text-muted-foreground">
+            Sem risco operacional pendente agora.
           </p>
         ) : null}
 
         {hasOverdueVisits ? (
           <div className="space-y-3">
-            <p className="text-sm font-bold text-destructive">Próximas visitas atrasadas</p>
+            <p className="text-xs font-black uppercase tracking-[0.1em] text-white/80">Visitas atrasadas</p>
             {alerts.overdueNextVisits.map((event) => (
               <DashboardAgendaItem key={event.id} event={event} />
             ))}
@@ -64,20 +68,20 @@ function AlertMetric({
   icon: Icon,
   label,
   value,
-  variant,
+  critical,
 }: {
   icon: ComponentType<{ className?: string }>;
   label: string;
   value: number;
-  variant: 'warning' | 'muted';
+  critical: boolean;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-background p-4">
+    <div className={critical ? 'rounded-lg border-2 border-white/30 bg-white/10 p-4' : 'rounded-lg border-2 border-[#1B4332]/20 bg-background p-4'}>
       <div className="mb-3 flex items-center justify-between gap-2">
-        <Icon className="h-4 w-4 text-muted-foreground" />
-        <Badge variant={variant === 'warning' ? 'warning' : 'muted'}>{value}</Badge>
+        <Icon className={critical ? 'h-4 w-4 text-white' : 'h-4 w-4 text-primary'} />
+        <Badge variant={critical ? 'info' : 'muted'}>{value}</Badge>
       </div>
-      <p className="text-xs font-semibold text-muted-foreground">{label}</p>
+      <p className={critical ? 'text-xs font-black uppercase tracking-[0.08em] text-white/75' : 'text-xs font-black uppercase tracking-[0.08em] text-muted-foreground'}>{label}</p>
     </div>
   );
 }

@@ -17,7 +17,7 @@ export function WeekCalendar({ currentDate, selectedDate, events, onSelectDate }
   const days = Array.from({ length: 7 }, (_item, index) => addDays(weekStart, index));
 
   return (
-    <div className="rounded-2xl border border-border bg-white p-2 shadow-sm">
+    <div className="rounded-xl border-2 border-[#1B4332]/25 bg-[#F3F5F0] p-2">
       <div className="grid grid-cols-7 gap-1">
         {days.map((day) => {
           const dayEvents = getEventsForDay(events, day);
@@ -30,8 +30,8 @@ export function WeekCalendar({ currentDate, selectedDate, events, onSelectDate }
               type="button"
               onClick={() => onSelectDate(day)}
               className={cn(
-                'flex min-h-24 flex-col items-center gap-2 rounded-xl px-1 py-2 text-center transition-colors duration-200 hover:bg-background',
-                isSelected && 'bg-primary text-primary-foreground shadow-sm hover:bg-primary',
+                'flex min-h-24 flex-col items-center gap-2 rounded-lg border-2 border-transparent px-1 py-2 text-center transition-colors duration-150 hover:border-[#1B4332]/30 hover:bg-background',
+                isSelected && 'border-[#1B4332] bg-[#1B4332] text-white hover:bg-[#1B4332]',
               )}
             >
               <span className={cn('text-[0.68rem] font-bold uppercase', !isSelected && 'text-muted-foreground')}>
@@ -39,8 +39,8 @@ export function WeekCalendar({ currentDate, selectedDate, events, onSelectDate }
               </span>
               <span
                 className={cn(
-                  'flex h-9 w-9 items-center justify-center rounded-xl text-sm font-semibold',
-                  isToday && !isSelected && 'border border-primary/35 bg-primary/10 text-primary',
+                  'flex h-9 w-9 items-center justify-center rounded-lg text-sm font-black',
+                  isToday && !isSelected && 'border-2 border-primary bg-primary/10 text-primary',
                 )}
               >
                 {day.getDate()}

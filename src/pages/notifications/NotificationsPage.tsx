@@ -33,19 +33,21 @@ export function NotificationsPage() {
 
   return (
     <div className="space-y-5">
-      <section className="flex items-start justify-between gap-4 rounded-2xl border border-border bg-white p-6 shadow-sm">
+      <section className="flex items-start justify-between gap-4 rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
         <div>
-          <h1 className="text-3xl font-semibold leading-tight">Notificações</h1>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {unreadCount} não lida{unreadCount === 1 ? '' : 's'}.
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Pressão operacional</p>
+          <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Alertas</h1>
+          <p className="mt-2 text-sm font-medium text-white/70">
+            {unreadCount} pendente{unreadCount === 1 ? '' : 's'} para ação.
           </p>
         </div>
         <Button
           type="button"
-          variant="outline"
+          variant="secondary"
           size="sm"
           onClick={() => markAllAsRead.mutate()}
           disabled={unreadCount === 0 || markAllAsRead.isPending}
+          className="border-white bg-white text-[#1B4332] hover:bg-[#D4A373]"
         >
           <CheckCheck className="h-4 w-4" />
           Marcar todas
@@ -89,14 +91,14 @@ function NotificationCard({
     notification.related_table === 'visits' && notification.related_id ? `/visits/${notification.related_id}` : null;
 
   return (
-    <Card className={cn(isUnread && 'border-primary/50', isDue && isUnread && 'bg-primary/5')}>
+    <Card className={cn(isUnread && 'border-[#C53030] bg-[#C53030]/10', isDue && isUnread && 'border-[#C53030]')}>
       <CardContent className="space-y-3 p-4">
         <div className="flex items-start gap-3">
-          <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl border border-primary/25 bg-primary/10 text-primary">
+          <div className={cn('mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border-2 text-primary', isUnread ? 'border-[#C53030] bg-[#C53030] text-white' : 'border-primary/25 bg-primary/10')}>
             <Bell className="h-4 w-4" />
           </div>
           <div className="min-w-0 flex-1 space-y-1">
-            <h2 className="text-base font-bold">{notification.title}</h2>
+            <h2 className="text-base font-black uppercase tracking-[0.02em]">{notification.title}</h2>
             <p className="text-sm text-muted-foreground">{notification.message}</p>
             <p className="text-xs text-muted-foreground">
               {notification.scheduled_for

@@ -28,22 +28,22 @@ export function AgendaEventCard({ event }: AgendaEventCardProps) {
   const isNextVisit = event.type === 'next_visit';
 
   return (
-    <Card className={cn('border-l-4 transition-colors duration-200 hover:border-primary/35', colorClasses[event.color_variant])}>
+    <Card className={cn('border-l-4 transition-colors duration-150 hover:border-primary/30', colorClasses[event.color_variant])}>
       <CardContent className="space-y-4 p-5">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 space-y-1.5">
-            <p className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.08em] text-muted-foreground">
               <Clock className="h-4 w-4" />
               {timeFormatter.format(new Date(event.starts_at))}
             </p>
-            <h3 className="line-clamp-2 text-base font-semibold">
+            <h3 className="line-clamp-2 text-base font-black uppercase tracking-[0.02em]">
               {event.title}: {event.purpose}
             </h3>
           </div>
           <Badge variant={isNextVisit ? 'warning' : 'default'}>{isNextVisit ? 'Próxima' : 'Visita'}</Badge>
         </div>
 
-        <div className="space-y-1 rounded-2xl border border-border bg-background p-3 text-sm text-muted-foreground">
+        <div className="space-y-1 rounded-lg border-2 border-[#1B4332]/20 bg-background p-3 text-sm text-muted-foreground">
           <p className="font-semibold text-foreground">{event.client_name}</p>
           {event.farm_name ? (
             <p className="flex items-center gap-2">

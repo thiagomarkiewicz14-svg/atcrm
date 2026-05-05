@@ -73,16 +73,16 @@ export function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-sm">
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(45,106,79,.28)_1px,transparent_1px)] [background-size:28px_28px]" />
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.45)_1px,transparent_1px)] [background-size:22px_22px]" />
         <div className="relative">
-          <Logo variant="compact" className="mb-5" />
-          <p className="text-sm font-semibold capitalize text-primary">{dayFormatter.format(new Date())}</p>
-          <h1 className="mt-2 text-3xl font-semibold leading-tight">
-            {firstName ? `Hoje no campo, ${firstName}` : 'Hoje no campo'}
+          <Logo variant="compact" className="mb-5 text-white [&_span:first-child]:border-white/20 [&_span:first-child]:bg-white/10 [&_span:last-child]:text-white" />
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-[#D4A373]">{dayFormatter.format(new Date())}</p>
+          <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">
+            {firstName ? `Campo agora, ${firstName}` : 'Campo agora'}
           </h1>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-muted-foreground">
-            Central operacional do AT CRM: visitas, alertas e carteira em uma visão rápida para o dia de campo.
+          <p className="mt-3 max-w-xl text-sm font-medium leading-6 text-white/70">
+            Prioridade, risco e deslocamento. Abra o que precisa de ação antes de perder janela no campo.
           </p>
         </div>
       </section>
