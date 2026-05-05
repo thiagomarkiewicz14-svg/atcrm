@@ -12,7 +12,7 @@ export function Sidebar() {
 
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 flex-col bg-[#1B4332] px-4 py-5 text-white md:flex">
-      <NavLink to="/" className="mb-8 flex items-center gap-3 rounded-2xl px-2 py-1" aria-label="AT CRM">
+      <NavLink to="/" className="mb-8 flex items-center gap-3 rounded-2xl px-2 py-1" aria-label="ATC CRM">
         <Logo variant="full" className="text-white [&_span:last-child_span:last-child]:text-white/65" />
       </NavLink>
 
@@ -41,7 +41,7 @@ export function Sidebar() {
       </nav>
 
       <div className="mt-auto rounded-lg border border-white/20 bg-white/10 p-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">AT CRM</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">ATC CRM</p>
         <p className="mt-2 text-sm leading-5 text-white/70">Gestão inteligente para o agronegócio.</p>
       </div>
     </aside>

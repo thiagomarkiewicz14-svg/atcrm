@@ -19,5 +19,5 @@ export function getPageTitle(pathname: string) {
   if (pathname.startsWith('/notifications')) return 'Alertas';
   if (pathname.startsWith('/settings')) return 'Configurações';
   if (pathname.startsWith('/profile')) return 'Operador';
-  return 'AT CRM';
+  return 'ATC CRM';
 }

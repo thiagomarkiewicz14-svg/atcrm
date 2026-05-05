@@ -17,7 +17,7 @@ export function TopBar() {
   return (
     <header className="sticky top-0 z-20 border-b-2 border-[#1B4332]/20 bg-[#F8F9F7]/95 backdrop-blur">
       <div className="flex h-16 items-center gap-3 px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="shrink-0 md:hidden" aria-label="AT CRM">
+        <Link to="/" className="shrink-0 md:hidden" aria-label="ATC CRM">
           <Logo variant="compact" />
         </Link>
 

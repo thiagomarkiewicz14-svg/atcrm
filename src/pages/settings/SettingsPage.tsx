@@ -128,7 +128,7 @@ export function SettingsPage() {
         <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Central do operador</p>
         <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Configurações</h1>
         <p className="mt-2 text-sm font-medium leading-6 text-white/70">
-          Preferências individuais da sua conta no AT CRM.
+          Preferências individuais da sua conta no ATC CRM.
         </p>
       </section>
 

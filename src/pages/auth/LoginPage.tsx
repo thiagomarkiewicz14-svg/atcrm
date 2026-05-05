@@ -38,7 +38,7 @@ export function LoginPage() {
 
           <div className="max-w-lg">
             <p className="text-xs font-black uppercase tracking-[0.22em] text-[#D4A373]">Instrumento de campo</p>
-            <h1 className="mt-5 text-5xl font-black uppercase leading-[0.95] tracking-[0.04em]">AT CRM</h1>
+            <h1 className="mt-5 text-5xl font-black uppercase leading-[0.95] tracking-[0.04em]">ATC CRM</h1>
             <p className="mt-5 max-w-md text-lg font-semibold leading-7 text-white/80">
               Prioridade, rota, visita e recuperação de carteira para RTVs e consultores no agro.
             </p>
