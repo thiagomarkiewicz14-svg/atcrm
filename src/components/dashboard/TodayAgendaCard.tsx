@@ -37,8 +37,63 @@ export function TodayAgendaCard({ events }: TodayAgendaCardProps) {
   );
 }
 
-export function DashboardAgendaItem({ event }: { event: AgendaEvent }) {
+type DashboardAgendaItemVariant = 'field' | 'alert';
+
+export function DashboardAgendaItem({
+  event,
+  variant = 'field',
+}: {
+  event: AgendaEvent;
+  variant?: DashboardAgendaItemVariant;
+}) {
   const isNextVisit = event.type === 'next_visit';
+  const isAlert = variant === 'alert';
+
+  if (isAlert) {
+    return (
+      <div className="rounded-lg border-2 border-[#E8D5D5] bg-[#FAFAFA] p-4 transition-colors duration-150">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 space-y-1.5">
+            <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.08em] text-[#C53030]">
+              <CalendarClock className="h-3.5 w-3.5" />
+              {formatDateTime(event.starts_at)}
+            </p>
+            <p className="line-clamp-1 text-base font-bold uppercase text-[#1B4332]">{event.client_name}</p>
+            {event.farm_name ? (
+              <p className="flex items-center gap-1.5 truncate text-xs font-semibold text-[#475569]">
+                <MapPin className="h-3.5 w-3.5" />
+                {event.farm_name}
+              </p>
+            ) : null}
+            <p className="line-clamp-2 text-sm font-medium text-muted-foreground">{event.purpose}</p>
+          </div>
+          <span className="inline-flex shrink-0 items-center rounded-md border border-[#FECACA] bg-[#FEF2F2] px-2.5 py-1 text-[0.68rem] font-black uppercase tracking-[0.08em] text-[#C53030]">
+            Atrasada
+          </span>
+        </div>
+
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
+          <span className="text-xs font-black uppercase tracking-[0.08em] text-[#7C5E3C]">
+            {getVisitTypeLabel(event.visit_type)}
+          </span>
+          <div className="flex flex-wrap gap-2">
+            <Link
+              to={`/visits/${event.source_visit_id}`}
+              className="inline-flex min-h-9 items-center justify-center gap-2 rounded-lg bg-[#C53030] px-3 text-xs font-black uppercase tracking-[0.08em] text-white transition-colors duration-150 hover:bg-[#9B2C2C]"
+            >
+              Recuperar
+            </Link>
+            <Link
+              to={`/visits/${event.source_visit_id}`}
+              className="inline-flex min-h-9 items-center justify-center gap-2 rounded-lg border-2 border-[#1B4332] px-3 text-xs font-black uppercase tracking-[0.08em] text-[#1B4332] transition-colors duration-150 hover:bg-[#1B4332] hover:text-white"
+            >
+              Abrir <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div

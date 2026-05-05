@@ -83,7 +83,7 @@ export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
                   className="rounded-lg border border-[#F0EDE8] bg-[#FAFAFA]"
                   style={{ borderLeft: '3px solid #C53030' }}
                 >
-                  <DashboardAgendaItem event={event} />
+                  <DashboardAgendaItem event={event} variant="alert" />
                 </div>
               ))}
             </div>
