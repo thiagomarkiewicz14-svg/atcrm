@@ -5,5 +5,4 @@
   <path d="M36 45.5C38.1 37.8 42 31.4 50 24" stroke="#C8A951" stroke-width="4" stroke-linecap="round"/>
   <path d="M13 33H50" stroke="#F8F9F7" stroke-opacity="0.22" stroke-width="2.5" stroke-linecap="round"/>
   <path d="M12 40H45" stroke="#F8F9F7" stroke-opacity="0.16" stroke-width="2.5" stroke-linecap="round"/>
-  <text x="32" y="31" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="1.1" fill="#F8F9F7">ATC</text>
 </svg>
