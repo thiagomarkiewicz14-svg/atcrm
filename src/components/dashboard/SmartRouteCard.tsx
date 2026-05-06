@@ -13,6 +13,7 @@ interface SmartRouteCardProps {
   clientsWithoutRecentVisit: ClientWithoutRecentVisit[];
   recentClients: Client[];
   overdueNextVisits: AgendaEvent[];
+  variant?: 'card' | 'embedded';
 }
 
 const badgeClassNames: Record<RoutePriorityBadge, string> = {
@@ -25,12 +26,33 @@ export function SmartRouteCard({
   clientsWithoutRecentVisit,
   recentClients,
   overdueNextVisits,
+  variant = 'card',
 }: SmartRouteCardProps) {
   const suggestions = buildSmartRouteSuggestions({
     clientsWithoutRecentVisit,
     recentClients,
     overdueNextVisits,
   });
+  const content = (
+    <div className="space-y-3">
+      {suggestions.length === 0 ? (
+        <div className="rounded-lg border-2 border-dashed border-[#1B4332]/20 bg-background p-4">
+          <p className="text-sm font-bold text-[#1B4332]">Carteira está sob controle hoje.</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Sem atraso ou recuperação crítica nos dados carregados do Dashboard.
+          </p>
+        </div>
+      ) : (
+        suggestions.map((suggestion, index) => (
+          <SmartRouteItem key={suggestion.clientId} position={index + 1} suggestion={suggestion} />
+        ))
+      )}
+    </div>
+  );
+
+  if (variant === 'embedded') {
+    return content;
+  }
 
   return (
     <Card className="border-[#1B4332]/25 bg-[#F3F5F0]">
@@ -47,20 +69,7 @@ export function SmartRouteCard({
           </span>
         </div>
       </CardHeader>
-      <CardContent className="space-y-3">
-        {suggestions.length === 0 ? (
-          <div className="rounded-lg border-2 border-dashed border-[#1B4332]/20 bg-background p-4">
-            <p className="text-sm font-bold text-[#1B4332]">Carteira está sob controle hoje.</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Sem atraso ou recuperação crítica nos dados carregados do Dashboard.
-            </p>
-          </div>
-        ) : (
-          suggestions.map((suggestion, index) => (
-            <SmartRouteItem key={suggestion.clientId} position={index + 1} suggestion={suggestion} />
-          ))
-        )}
-      </CardContent>
+      <CardContent>{content}</CardContent>
     </Card>
   );
 }

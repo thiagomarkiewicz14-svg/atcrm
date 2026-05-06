@@ -17,6 +17,7 @@ import { VisitDetailPage } from './pages/visits/VisitDetailPage';
 import { VisitFormPage } from './pages/visits/VisitFormPage';
 import { VisitReportPage } from './pages/visits/VisitReportPage';
 import { NotificationsPage } from './pages/notifications/NotificationsPage';
+import { PortfolioReportPage } from './pages/reports/PortfolioReportPage';
 
 export function App() {
   return (
@@ -43,6 +44,7 @@ export function App() {
           <Route path="/visits/:id/edit" element={<VisitFormPage />} />
           <Route path="/visits/:id/report" element={<VisitReportPage />} />
           <Route path="/notifications" element={<NotificationsPage />} />
+          <Route path="/reports/portfolio" element={<PortfolioReportPage />} />
         </Route>
       </Route>
 
