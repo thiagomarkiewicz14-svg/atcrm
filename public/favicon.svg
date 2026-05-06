@@ -1,9 +1,9 @@
 <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="16" fill="#1B4332"/>
-  <path d="M14 45C18.4 31.7 24.9 21.4 35 13" stroke="#D4A373" stroke-width="4" stroke-linecap="round"/>
-  <path d="M25 47C28.1 35.7 33.2 26.4 43 18" stroke="#F3D2A2" stroke-width="4" stroke-linecap="round"/>
-  <path d="M36 45.5C38.1 37.8 42 31.4 50 24" stroke="#D4A373" stroke-width="4" stroke-linecap="round"/>
-  <path d="M13 33H50" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M12 40H45" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="2.5" stroke-linecap="round"/>
-  <text x="32" y="31" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="1.1" fill="#FFFFFF">ATC</text>
+  <rect width="64" height="64" rx="16" fill="#1E3A2F"/>
+  <path d="M14 45C18.4 31.7 24.9 21.4 35 13" stroke="#C8A951" stroke-width="4" stroke-linecap="round"/>
+  <path d="M25 47C28.1 35.7 33.2 26.4 43 18" stroke="#F8F9F7" stroke-width="4" stroke-linecap="round"/>
+  <path d="M36 45.5C38.1 37.8 42 31.4 50 24" stroke="#C8A951" stroke-width="4" stroke-linecap="round"/>
+  <path d="M13 33H50" stroke="#F8F9F7" stroke-opacity="0.22" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M12 40H45" stroke="#F8F9F7" stroke-opacity="0.16" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="32" y="31" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="900" letter-spacing="1.1" fill="#F8F9F7">ATC</text>
 </svg>

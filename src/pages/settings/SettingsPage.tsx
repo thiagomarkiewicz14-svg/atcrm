@@ -1,4 +1,4 @@
-import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
+﻿import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
 
 import { ErrorState } from '@/components/shared/ErrorState';
 import { LoadingState } from '@/components/shared/LoadingState';
@@ -124,8 +124,8 @@ export function SettingsPage() {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
-        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Central do operador</p>
+      <section className="rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
+        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Central do operador</p>
         <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Configurações</h1>
         <p className="mt-2 text-sm font-medium leading-6 text-white/70">
           Preferências individuais da sua conta no ATC CRM.
@@ -211,7 +211,7 @@ export function SettingsPage() {
               />
             </Field>
 
-            <div className="rounded-lg border-2 border-[#1B4332]/20 bg-background p-3">
+            <div className="rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-3">
               <p className="text-xs font-black uppercase tracking-[0.08em]">Variáveis disponíveis</p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {templateVariables.map((variable) => (
@@ -351,7 +351,7 @@ function ToggleField({
 
 function ReadonlyValue({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-lg border-2 border-[#1B4332]/20 bg-background p-4">
+    <div className="rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-4">
       <p className="text-xs font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</p>
       <p className="mt-1 text-sm font-black">{value}</p>
     </div>

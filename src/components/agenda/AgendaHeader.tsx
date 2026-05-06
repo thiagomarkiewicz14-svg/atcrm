@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+﻿import type { ReactNode } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
@@ -23,15 +23,15 @@ export function AgendaHeader({
   onModeChange,
 }: AgendaHeaderProps) {
   return (
-    <div className="rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+    <div className="rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Rota de campo</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Rota de campo</p>
           <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Agenda</h1>
           <p className="mt-1 truncate text-sm font-medium capitalize text-white/70">{title}</p>
         </div>
 
-        <Button type="button" variant="secondary" size="sm" onClick={onToday} className="border-white bg-white text-[#1B4332] hover:bg-[#D4A373]">
+        <Button type="button" variant="secondary" size="sm" onClick={onToday} className="border-white bg-white text-[#1E3A2F] hover:bg-[#C8A951]">
           Hoje
         </Button>
       </div>
@@ -73,7 +73,7 @@ function ModeButton({
       type="button"
       className={cn(
         'h-9 rounded-md px-3 text-xs font-black uppercase tracking-[0.08em] text-white/65 transition-colors duration-150',
-        isActive && 'bg-[#D4A373] text-[#1B4332]',
+        isActive && 'bg-[#C8A951] text-[#1E3A2F]',
       )}
       onClick={onClick}
     >

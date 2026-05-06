@@ -1,4 +1,4 @@
-import { buildFieldInsights } from '@/lib/portfolio-insights';
+﻿import { buildFieldInsights } from '@/lib/portfolio-insights';
 import { buildSmartRouteSuggestions } from '@/lib/route-intelligence';
 import { clientsService } from '@/services/clients.service';
 import { dashboardService } from '@/services/dashboard.service';
@@ -103,8 +103,8 @@ Prioridade:
 ${priorityLines}`;
 
   const html = `
-    <section style="font-family: Inter, Arial, sans-serif; color: #1C1C1C;">
-      <h1 style="color: #1B4332;">Bom dia, ${escapeHtml(firstName)}.</h1>
+    <section style="font-family: Inter, Arial, sans-serif; color: #111111;">
+      <h1 style="color: #1E3A2F;">Bom dia, ${escapeHtml(firstName)}.</h1>
       <h2>Seu campo hoje</h2>
       <ul>
         <li><strong>${metrics.riskClients}</strong> clientes em risco</li>

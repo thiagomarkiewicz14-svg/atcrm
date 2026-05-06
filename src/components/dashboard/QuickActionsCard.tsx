@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { CalendarDays, Plus, Route, UsersRound } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,7 +12,7 @@ const actions = [
 
 export function QuickActionsCard() {
   return (
-    <Card className="border-[#1B4332] bg-[#1B4332] text-white">
+    <Card className="border-[#1E3A2F] bg-[#1E3A2F] text-white">
       <CardHeader>
         <CardTitle>Ações de campo</CardTitle>
       </CardHeader>
@@ -22,9 +22,9 @@ export function QuickActionsCard() {
             <Link
               key={action.to}
               to={action.to}
-              className="group flex min-h-24 flex-col justify-between rounded-lg border-2 border-white/20 bg-white/10 p-4 transition-colors hover:border-[#D4A373]"
+              className="group flex min-h-24 flex-col justify-between rounded-lg border-2 border-white/20 bg-white/10 p-4 transition-colors hover:border-[#C8A951]"
             >
-              <action.icon className="h-5 w-5 text-[#D4A373]" />
+              <action.icon className="h-5 w-5 text-[#C8A951]" />
               <span>
                 <span className="block text-sm font-black uppercase tracking-[0.08em]">{action.label}</span>
                 <span className="mt-1 block text-xs font-medium text-white/60">{action.action}</span>

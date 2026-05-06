@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { MapPin, MessageCircle, Rows3 } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -57,7 +57,7 @@ export function ClientCard({ client }: ClientCardProps) {
         </div>
 
         {client.main_crops.length > 0 ? (
-          <p className="flex items-start gap-2 rounded-lg border-2 border-[#1B4332]/20 bg-background p-3 text-sm font-medium text-muted-foreground">
+          <p className="flex items-start gap-2 rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-3 text-sm font-medium text-muted-foreground">
             <Rows3 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
             <span className="line-clamp-2">{client.main_crops.join(', ')}</span>
           </p>

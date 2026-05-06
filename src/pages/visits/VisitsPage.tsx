@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CalendarClock, Plus } from 'lucide-react';
 
@@ -55,15 +55,15 @@ export function VisitsPage() {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:22px_22px]" />
         <div className="relative flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Operação técnica</p>
+            <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Operação técnica</p>
             <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Visitas</h1>
             <p className="mt-2 text-sm font-medium leading-6 text-white/70">Registro, próxima ação e evidência de campo.</p>
           </div>
-          <Link to="/visits/new" className={`${buttonVariants({ size: 'sm' })} bg-[#D4A373] text-[#1B4332] hover:bg-white`}>
+          <Link to="/visits/new" className={`${buttonVariants({ size: 'sm' })} bg-[#C8A951] text-[#1E3A2F] hover:bg-white`}>
             <Plus className="h-4 w-4" />
             Ir agora
           </Link>
@@ -120,7 +120,7 @@ export function VisitsPage() {
       ) : null}
 
       <section className="space-y-3">
-        <h2 className="text-sm font-black uppercase tracking-[0.1em] text-[#1B4332]">Visitas recentes</h2>
+        <h2 className="text-sm font-black uppercase tracking-[0.1em] text-[#1E3A2F]">Visitas recentes</h2>
 
         {visits.length === 0 ? (
           <EmptyState
@@ -147,9 +147,9 @@ export function VisitsPage() {
 
 function StatCard({ label, value }: { label: string; value: number }) {
   return (
-    <Card className="border-[#1B4332]/30 bg-[#F3F5F0]">
+    <Card className="border-[#1E3A2F]/30 bg-[#F8F9F7]">
       <CardContent className="p-4">
-        <p className="text-3xl font-black leading-none text-[#1B4332]">{value}</p>
+        <p className="text-3xl font-black leading-none text-[#1E3A2F]">{value}</p>
         <p className="mt-2 text-[0.68rem] font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</p>
       </CardContent>
     </Card>

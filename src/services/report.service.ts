@@ -24,7 +24,7 @@ export async function generateVisitPdf(visitId: string): Promise<Blob> {
         margin: [8, 8, 8, 8],
         filename: fileName,
         image: { type: 'jpeg', quality: 0.96 },
-        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#F8F9F7' },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
       })
       .from(element)

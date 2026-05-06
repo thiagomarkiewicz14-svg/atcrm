@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+﻿import type { ReactNode } from 'react';
 import { Inbox } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
@@ -14,7 +14,7 @@ export function EmptyState({ title, description, action, className }: EmptyState
   return (
     <div
       className={cn(
-        'flex min-h-48 flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-[#1B4332]/25 bg-[#F3F5F0] p-6 text-center',
+        'flex min-h-48 flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-[#1E3A2F]/25 bg-[#F8F9F7] p-6 text-center',
         className,
       )}
     >

@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+﻿import { useNavigate, useParams } from 'react-router-dom';
 
 import { ClientForm } from '@/components/clients/ClientForm';
 import { EmptyState } from '@/components/shared/EmptyState';
@@ -43,8 +43,8 @@ export function ClientFormPage() {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
-        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Carteira de campo</p>
+      <section className="rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
+        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Carteira de campo</p>
         <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">
           {isEditing ? 'Editar cliente' : 'Cadastrar alvo'}
         </h1>

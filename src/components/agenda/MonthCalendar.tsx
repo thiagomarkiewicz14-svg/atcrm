@@ -1,4 +1,4 @@
-import { addDays, endOfMonth, getEventsForDay, isSameDay, startOfMonth, startOfWeek } from '@/lib/agenda';
+﻿import { addDays, endOfMonth, getEventsForDay, isSameDay, startOfMonth, startOfWeek } from '@/lib/agenda';
 import { cn } from '@/lib/utils';
 import type { AgendaEvent } from '@/types/agenda.types';
 
@@ -22,7 +22,7 @@ export function MonthCalendar({ currentDate, selectedDate, events, onSelectDate 
   const today = new Date();
 
   return (
-    <div className="rounded-xl border-2 border-[#1B4332]/25 bg-[#F3F5F0] p-2">
+    <div className="rounded-xl border-2 border-[#1E3A2F]/25 bg-[#F8F9F7] p-2">
       <div className="mb-1 grid grid-cols-7 gap-1">
         {weekHeaderDays.map((day) => (
           <span key={day.toISOString()} className="py-2 text-center text-xs font-bold uppercase text-muted-foreground">
@@ -45,9 +45,9 @@ export function MonthCalendar({ currentDate, selectedDate, events, onSelectDate 
               type="button"
               onClick={() => onSelectDate(day)}
               className={cn(
-                'flex min-h-14 flex-col items-center justify-center gap-1 rounded-lg border-2 border-transparent px-1 py-1 text-center transition-colors duration-150 hover:border-[#1B4332]/30 hover:bg-background',
+                'flex min-h-14 flex-col items-center justify-center gap-1 rounded-lg border-2 border-transparent px-1 py-1 text-center transition-colors duration-150 hover:border-[#1E3A2F]/30 hover:bg-background',
                 isOutsideMonth && 'opacity-40',
-                isSelected && 'border-[#1B4332] bg-[#1B4332] text-white opacity-100 hover:bg-[#1B4332]',
+                isSelected && 'border-[#1E3A2F] bg-[#1E3A2F] text-white opacity-100 hover:bg-[#1E3A2F]',
               )}
             >
               <span

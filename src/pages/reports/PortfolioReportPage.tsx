@@ -1,4 +1,4 @@
-import { type ReactNode, useMemo, useRef, useState } from 'react';
+﻿import { type ReactNode, useMemo, useRef, useState } from 'react';
 import { Download, FileDown } from 'lucide-react';
 
 import { ErrorState } from '@/components/shared/ErrorState';
@@ -77,8 +77,8 @@ export function PortfolioReportPage() {
 
   return (
     <div className="space-y-5">
-      <section className="rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
-        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Relatório de carteira</p>
+      <section className="rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
+        <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Relatório de carteira</p>
         <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Carteira em campo</h1>
         <p className="mt-2 text-sm font-medium text-white/70">
           Visitas, risco e oportunidades por período para decisão operacional.
@@ -132,10 +132,10 @@ export function PortfolioReportPage() {
           <SummaryCard label="clientes críticos" value={report.summary.criticalClients} tone="risk" />
         </section>
 
-        <Card className="border-[#1B4332]/25 bg-[#F3F5F0]">
+        <Card className="border-[#1E3A2F]/25 bg-[#F8F9F7]">
           <CardHeader>
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <CardTitle className="text-[#1B4332]">Clientes no período</CardTitle>
+              <CardTitle className="text-[#1E3A2F]">Clientes no período</CardTitle>
               <div className="flex flex-wrap gap-2">
                 <Button type="button" variant="outline" size="sm" onClick={exportCsv}>
                   <Download className="h-4 w-4" />
@@ -150,7 +150,7 @@ export function PortfolioReportPage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {report.rows.length === 0 ? (
-              <p className="rounded-lg border-2 border-dashed border-[#1B4332]/20 bg-background p-4 text-sm font-bold text-[#1B4332]">
+              <p className="rounded-lg border-2 border-dashed border-[#1E3A2F]/20 bg-background p-4 text-sm font-bold text-[#1E3A2F]">
                 Nenhum cliente encontrado para os filtros atuais.
               </p>
             ) : (
@@ -168,7 +168,7 @@ const selectClassName =
 
 function FilterField({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="space-y-2 rounded-xl border-2 border-[#1B4332]/20 bg-[#F3F5F0] p-3">
+    <div className="space-y-2 rounded-xl border-2 border-[#1E3A2F]/20 bg-[#F8F9F7] p-3">
       <Label>{label}</Label>
       {children}
     </div>
@@ -177,9 +177,9 @@ function FilterField({ label, children }: { label: string; children: ReactNode }
 
 function SummaryCard({ label, value, tone = 'field' }: { label: string; value: number | string; tone?: 'field' | 'risk' }) {
   return (
-    <Card className={tone === 'risk' ? 'border-[#FECACA] bg-[#FEF2F2]' : 'border-[#1B4332]/25 bg-[#F3F5F0]'}>
+    <Card className={tone === 'risk' ? 'border-[#FECACA] bg-[#FEF2F2]' : 'border-[#1E3A2F]/25 bg-[#F8F9F7]'}>
       <CardContent className="p-4">
-        <p className={tone === 'risk' ? 'text-3xl font-black text-[#C53030]' : 'text-3xl font-black text-[#1B4332]'}>
+        <p className={tone === 'risk' ? 'text-3xl font-black text-[#C53030]' : 'text-3xl font-black text-[#1E3A2F]'}>
           {value}
         </p>
         <p className="mt-2 text-xs font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</p>
@@ -190,10 +190,10 @@ function SummaryCard({ label, value, tone = 'field' }: { label: string; value: n
 
 function PortfolioRowCard({ row }: { row: ReturnType<typeof buildPortfolioReport>['rows'][number] }) {
   return (
-    <div className="rounded-lg border-2 border-[#1B4332]/20 bg-background p-4">
+    <div className="rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-4">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="line-clamp-1 text-base font-black uppercase tracking-[0.02em] text-[#1B4332]">
+          <p className="line-clamp-1 text-base font-black uppercase tracking-[0.02em] text-[#1E3A2F]">
             {row.client.name}
           </p>
           <p className="mt-1 text-xs font-semibold text-muted-foreground">
@@ -221,7 +221,7 @@ function ReportMetric({ label, value }: { label: string; value: number | string 
   return (
     <div>
       <dt className="text-[0.62rem] font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</dt>
-      <dd className="mt-1 font-bold text-[#1B4332]">{value}</dd>
+      <dd className="mt-1 font-bold text-[#1E3A2F]">{value}</dd>
     </div>
   );
 }
@@ -232,7 +232,7 @@ function getStatusClassName(status: PortfolioHealthStatus) {
   }
 
   if (status === 'EM RISCO') {
-    return 'border-[#D4A373]/40 bg-[#D4A373]/20 text-[#7C5E3C]';
+    return 'border-[#C8A951]/40 bg-[#C8A951]/20 text-[#7C5E3C]';
   }
 
   return 'border-[#2E7D32]/30 bg-[#2E7D32]/10 text-[#2E7D32]';

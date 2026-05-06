@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { CalendarClock, Download, Edit, FileText, MessageCircle, Trash2 } from 'lucide-react';
 
@@ -85,10 +85,10 @@ export function VisitDetailPage() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:22px_22px]" />
         <div className="space-y-3">
-          <p className="relative flex items-center gap-2 text-xs font-black uppercase tracking-[0.1em] text-[#D4A373]">
+          <p className="relative flex items-center gap-2 text-xs font-black uppercase tracking-[0.1em] text-[#C8A951]">
             <CalendarClock className="h-4 w-4" />
             {formatDateTime(visit.visit_date)}
           </p>
@@ -108,15 +108,15 @@ export function VisitDetailPage() {
           </div>
 
           <div className="relative flex flex-wrap gap-2 pt-2">
-            <Link to={`/visits/${visit.id}/edit`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}>
+            <Link to={`/visits/${visit.id}/edit`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1E3A2F] hover:bg-[#C8A951]`}>
               <Edit className="h-4 w-4" />
               Editar
             </Link>
-            <Link to={`/visits/${visit.id}/report`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}>
+            <Link to={`/visits/${visit.id}/report`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1E3A2F] hover:bg-[#C8A951]`}>
               <FileText className="h-4 w-4" />
               Relatório
             </Link>
-            <Button type="button" variant="secondary" size="sm" onClick={handleDownloadPdf} disabled={isGeneratingPdf} className="border-white bg-white text-[#1B4332] hover:bg-[#D4A373]">
+            <Button type="button" variant="secondary" size="sm" onClick={handleDownloadPdf} disabled={isGeneratingPdf} className="border-white bg-white text-[#1E3A2F] hover:bg-[#C8A951]">
               <Download className="h-4 w-4" />
               {isGeneratingPdf ? 'Gerando...' : 'Baixar PDF'}
             </Button>
@@ -167,7 +167,7 @@ export function VisitDetailPage() {
           <CardTitle>Recomendações</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="whitespace-pre-wrap rounded-lg border-2 border-[#1B4332]/20 bg-background p-4 text-sm leading-6 text-muted-foreground">
+          <p className="whitespace-pre-wrap rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-4 text-sm leading-6 text-muted-foreground">
             {visit.recommendations ?? 'Nenhuma recomendação registrada.'}
           </p>
         </CardContent>

@@ -18,16 +18,16 @@ export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
 
   return (
     <Card
-      className="bg-white border-[#E8D5D5]"
-      style={isCritical ? { borderLeft: '4px solid #C53030' } : { borderLeft: '4px solid #1B4332' }}
+      className="border-[#1E3A2F]/20 bg-[#F8F9F7]"
+      style={isCritical ? { borderLeft: '4px solid #C53030' } : { borderLeft: '4px solid #1E3A2F' }}
     >
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <AlertTriangle
-              className={isCritical ? 'h-4 w-4 text-[#C53030]' : 'h-4 w-4 text-[#1B4332]'}
+              className={isCritical ? 'h-4 w-4 text-[#C53030]' : 'h-4 w-4 text-[#1E3A2F]'}
             />
-            <CardTitle className="text-[#1B4332]">
+            <CardTitle className="text-[#1E3A2F]">
               {isCritical ? 'Atenção imediata' : 'Atenção'}
             </CardTitle>
             {isCritical && (
@@ -39,7 +39,7 @@ export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
           </div>
           <Link
             to="/notifications"
-            className="text-xs font-black uppercase tracking-[0.08em] text-[#1B4332] hover:underline"
+            className="text-xs font-black uppercase tracking-[0.08em] text-[#1E3A2F] hover:underline"
           >
             Alertas
           </Link>
@@ -65,7 +65,7 @@ export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
 
         {/* ── Estado vazio ── */}
         {!hasNotifications && !hasOverdueVisits ? (
-          <p className="rounded-lg border-2 border-[#1B4332]/20 bg-[#F5F0E8] p-4 text-sm font-medium text-muted-foreground">
+          <p className="rounded-lg border-2 border-[#1E3A2F]/20 bg-[#F8F9F7] p-4 text-sm font-medium text-muted-foreground">
             Sem risco operacional pendente agora.
           </p>
         ) : null}
@@ -80,7 +80,7 @@ export function DashboardAlertsCard({ alerts }: DashboardAlertsCardProps) {
               {alerts.overdueNextVisits.map((event) => (
                 <div
                   key={event.id}
-                  className="rounded-lg border border-[#F0EDE8] bg-[#FAFAFA]"
+                  className="rounded-lg border border-[#1E3A2F]/10 bg-[#F8F9F7]"
                   style={{ borderLeft: '3px solid #C53030' }}
                 >
                   <DashboardAgendaItem event={event} variant="alert" />
@@ -109,10 +109,10 @@ function AlertMetric({
     <div className={
       critical
         ? 'rounded-lg border border-[#FECACA] bg-[#FEF2F2] p-4'
-        : 'rounded-lg border-2 border-[#1B4332]/20 bg-[#F5F0E8] p-4'
+        : 'rounded-lg border-2 border-[#1E3A2F]/20 bg-[#F8F9F7] p-4'
     }>
       <div className="mb-3 flex items-center justify-between gap-2">
-        <Icon className={critical ? 'h-4 w-4 text-[#C53030]' : 'h-4 w-4 text-[#1B4332]'} />
+        <Icon className={critical ? 'h-4 w-4 text-[#C53030]' : 'h-4 w-4 text-[#1E3A2F]'} />
         <Badge variant={critical ? 'warning' : 'muted'}>{value}</Badge>
       </div>
       <p className={

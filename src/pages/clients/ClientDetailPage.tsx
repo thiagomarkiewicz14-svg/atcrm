@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Edit, MessageCircle, Plus, Trash2 } from 'lucide-react';
 
@@ -72,10 +72,10 @@ export function ClientDetailPage() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:22px_22px]" />
         <div className="relative">
-          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Cliente em carteira</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Cliente em carteira</p>
           <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">{client.name}</h1>
           <p className="mt-2 text-sm font-medium text-white/70">
             {[client.city, client.state].filter(Boolean).join(' / ') || 'Localização não informada'}
@@ -95,13 +95,13 @@ export function ClientDetailPage() {
               href={whatsappLink}
               target="_blank"
               rel="noreferrer"
-              className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}
+              className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1E3A2F] hover:bg-[#C8A951]`}
             >
               <MessageCircle className="h-4 w-4" />
               WhatsApp
             </a>
           ) : null}
-          <Link to={`/clients/${client.id}/edit`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}>
+          <Link to={`/clients/${client.id}/edit`} className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1E3A2F] hover:bg-[#C8A951]`}>
             <Edit className="h-4 w-4" />
             Editar
           </Link>
@@ -120,7 +120,7 @@ export function ClientDetailPage() {
 
       {deleteClient.isError ? <ErrorState error={deleteClient.error} /> : null}
 
-      <div className="grid grid-cols-3 gap-2 rounded-xl border-2 border-[#1B4332]/20 bg-[#F3F5F0] p-1">
+      <div className="grid grid-cols-3 gap-2 rounded-xl border-2 border-[#1E3A2F]/20 bg-[#F8F9F7] p-1">
         <TabButton isActive={activeTab === 'data'} onClick={() => setActiveTab('data')}>
           Dados
         </TabButton>
@@ -238,7 +238,7 @@ function ClientFarmsTab({ client }: { client: Client }) {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between gap-3">
-        <h2 className="text-sm font-black uppercase tracking-[0.1em] text-[#1B4332]">Propriedades</h2>
+        <h2 className="text-sm font-black uppercase tracking-[0.1em] text-[#1E3A2F]">Propriedades</h2>
         <Button type="button" size="sm" onClick={startCreate}>
           <Plus className="h-4 w-4" />
           Nova propriedade
@@ -313,7 +313,7 @@ function TabButton({
       onClick={onClick}
       className={cn(
         'h-10 rounded-lg px-2 text-xs font-black uppercase tracking-[0.06em] text-muted-foreground transition-colors duration-150 sm:text-sm',
-        isActive && 'bg-[#1B4332] text-white',
+        isActive && 'bg-[#1E3A2F] text-white',
       )}
     >
       {children}

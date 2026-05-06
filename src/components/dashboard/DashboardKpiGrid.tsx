@@ -1,4 +1,4 @@
-import { AlertTriangle, TrendingUp, UserCheck, UsersRound } from 'lucide-react';
+﻿import { AlertTriangle, TrendingUp, UserCheck, UsersRound } from 'lucide-react';
 
 import { Card, CardContent } from '@/components/ui/card';
 import type { DashboardSummary } from '@/types/dashboard.types';
@@ -8,8 +8,8 @@ interface DashboardKpiGridProps {
 }
 
 const kpis = [
-  { key: 'totalClients', label: 'Carteira', icon: UsersRound, tone: 'text-white', panel: 'bg-[#1B4332] text-white' },
-  { key: 'prospects', label: 'Prospects', icon: TrendingUp, tone: 'text-[#1B4332]', panel: 'bg-[#D4A373] text-[#1B4332]' },
+  { key: 'totalClients', label: 'Carteira', icon: UsersRound, tone: 'text-white', panel: 'bg-[#1E3A2F] text-white' },
+  { key: 'prospects', label: 'Prospects', icon: TrendingUp, tone: 'text-[#1E3A2F]', panel: 'bg-[#C8A951] text-[#1E3A2F]' },
   { key: 'activeClients', label: 'Ativos', icon: UserCheck, tone: 'text-white', panel: 'bg-[#2D6A4F] text-white' },
   { key: 'highPotentialClients', label: 'Alto risco/oportunidade', icon: AlertTriangle, tone: 'text-white', panel: 'bg-[#C53030] text-white' },
 ] as const;

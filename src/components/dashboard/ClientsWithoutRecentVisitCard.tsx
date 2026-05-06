@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Clock } from 'lucide-react';
 
 import { buttonVariants } from '@/components/ui/button';
@@ -18,7 +18,7 @@ export function ClientsWithoutRecentVisitCard({ clients }: ClientsWithoutRecentV
       </CardHeader>
       <CardContent className="space-y-3">
         {clients.length === 0 ? (
-          <p className="rounded-lg border-2 border-dashed border-[#1B4332]/20 bg-background p-4 text-sm font-medium text-muted-foreground">
+          <p className="rounded-lg border-2 border-dashed border-[#1E3A2F]/20 bg-background p-4 text-sm font-medium text-muted-foreground">
             Nenhum cliente crítico sem contato nos últimos 30 dias.
           </p>
         ) : (

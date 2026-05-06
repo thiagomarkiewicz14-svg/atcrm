@@ -15,11 +15,11 @@ interface TodayAgendaCardProps {
 
 export function TodayAgendaCard({ events }: TodayAgendaCardProps) {
   return (
-    <Card className="border-[#1B4332] bg-[#1B4332] text-white">
+    <Card className="border-[#1E3A2F] bg-[#1E3A2F] text-white">
       <CardHeader>
         <div className="flex items-center justify-between gap-3">
           <CardTitle>Hoje no campo</CardTitle>
-          <Link to="/agenda" className="text-xs font-black uppercase tracking-[0.08em] text-[#D4A373] hover:underline">
+          <Link to="/agenda" className="text-xs font-black uppercase tracking-[0.08em] text-[#C8A951] hover:underline">
             Rota
           </Link>
         </div>
@@ -51,14 +51,14 @@ export function DashboardAgendaItem({
 
   if (isAlert) {
     return (
-      <div className="rounded-lg border-2 border-[#E8D5D5] bg-[#FAFAFA] p-4 transition-colors duration-150">
+      <div className="rounded-lg border-2 border-[#1E3A2F]/15 bg-[#F8F9F7] p-4 transition-colors duration-150">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 space-y-1.5">
             <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.08em] text-[#C53030]">
               <CalendarClock className="h-3.5 w-3.5" />
               {formatDateTime(event.starts_at)}
             </p>
-            <p className="line-clamp-1 text-base font-bold uppercase text-[#1B4332]">{event.client_name}</p>
+            <p className="line-clamp-1 text-base font-bold uppercase text-[#1E3A2F]">{event.client_name}</p>
             {event.farm_name ? (
               <p className="flex items-center gap-1.5 truncate text-xs font-semibold text-[#475569]">
                 <MapPin className="h-3.5 w-3.5" />
@@ -85,7 +85,7 @@ export function DashboardAgendaItem({
             </Link>
             <Link
               to={`/visits/${event.source_visit_id}`}
-              className="inline-flex min-h-9 items-center justify-center gap-2 rounded-lg border-2 border-[#1B4332] px-3 text-xs font-black uppercase tracking-[0.08em] text-[#1B4332] transition-colors duration-150 hover:bg-[#1B4332] hover:text-white"
+              className="inline-flex min-h-9 items-center justify-center gap-2 rounded-lg border-2 border-[#1E3A2F] px-3 text-xs font-black uppercase tracking-[0.08em] text-[#1E3A2F] transition-colors duration-150 hover:bg-[#1E3A2F] hover:text-white"
             >
               Abrir <ArrowRight className="h-4 w-4" />
             </Link>
@@ -99,7 +99,7 @@ export function DashboardAgendaItem({
     <div
       className={cn(
         'rounded-lg border-2 p-4 transition-colors duration-150',
-        isNextVisit ? 'border-[#ED8936] bg-[#ED8936]/10' : 'border-white/20 bg-white/10',
+        isNextVisit ? 'border-[#C8A951] bg-[#C8A951]/15' : 'border-white/20 bg-white/10',
       )}
     >
       <div className="flex items-start justify-between gap-3">

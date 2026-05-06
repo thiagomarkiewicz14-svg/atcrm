@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Plus } from 'lucide-react';
 
@@ -25,15 +25,15 @@ export function ClientsListPage() {
 
   return (
     <div className="space-y-5">
-      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.5)_1px,transparent_1px)] [background-size:22px_22px]" />
         <div className="relative flex items-start justify-between gap-4">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Carteira de campo</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Carteira de campo</p>
           <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Clientes</h1>
           <p className="mt-2 text-sm font-medium text-white/70">Priorize alvos, contatos e oportunidades por praça.</p>
         </div>
-        <Link to="/clients/new" className={`${buttonVariants({ size: 'sm' })} bg-[#D4A373] text-[#1B4332] hover:bg-white`}>
+        <Link to="/clients/new" className={`${buttonVariants({ size: 'sm' })} bg-[#C8A951] text-[#1E3A2F] hover:bg-white`}>
           <Plus className="h-4 w-4" />
           Cadastrar alvo
         </Link>

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+﻿import { NavLink } from 'react-router-dom';
 
 import { useUnreadNotificationCount } from '@/hooks/useNotifications';
 import { cn } from '@/lib/utils';
@@ -14,7 +14,7 @@ export function BottomNav() {
   const unreadCount = unreadCountQuery.data ?? 0;
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-[#1B4332]/20 bg-[#F8F9F7] md:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-30 border-t-2 border-[#1E3A2F]/20 bg-[#F8F9F7] md:hidden">
       <div className="grid h-20 grid-cols-5 px-1">
         {mobileNavItems.map((item) => (
           <NavLink

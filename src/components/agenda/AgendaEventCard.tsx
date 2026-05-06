@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Clock, MapPinned } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -14,7 +14,7 @@ interface AgendaEventCardProps {
 
 const colorClasses: Record<AgendaEvent['color_variant'], string> = {
   green: 'border-l-primary',
-  blue: 'border-l-[#D4A373]',
+  blue: 'border-l-[#C8A951]',
   amber: 'border-l-[#ED8936]',
   gray: 'border-l-muted-foreground',
 };
@@ -43,7 +43,7 @@ export function AgendaEventCard({ event }: AgendaEventCardProps) {
           <Badge variant={isNextVisit ? 'warning' : 'default'}>{isNextVisit ? 'Próxima' : 'Visita'}</Badge>
         </div>
 
-        <div className="space-y-1 rounded-lg border-2 border-[#1B4332]/20 bg-background p-3 text-sm text-muted-foreground">
+        <div className="space-y-1 rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-3 text-sm text-muted-foreground">
           <p className="font-semibold text-foreground">{event.client_name}</p>
           {event.farm_name ? (
             <p className="flex items-center gap-2">

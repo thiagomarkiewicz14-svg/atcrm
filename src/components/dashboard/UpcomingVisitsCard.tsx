@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 
 import { DashboardAgendaItem } from '@/components/dashboard/TodayAgendaCard';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,11 +10,11 @@ interface UpcomingVisitsCardProps {
 
 export function UpcomingVisitsCard({ events }: UpcomingVisitsCardProps) {
   return (
-    <Card className="border-[#1B4332] bg-[#1B4332] text-white">
+    <Card className="border-[#1E3A2F] bg-[#1E3A2F] text-white">
       <CardHeader>
         <div className="flex items-center justify-between gap-3">
           <CardTitle>Próximas visitas</CardTitle>
-          <Link to="/agenda" className="text-xs font-black uppercase tracking-[0.08em] text-[#D4A373] hover:underline">
+          <Link to="/agenda" className="text-xs font-black uppercase tracking-[0.08em] text-[#C8A951] hover:underline">
             Ver rota
           </Link>
         </div>

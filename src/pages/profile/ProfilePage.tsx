@@ -1,4 +1,4 @@
-import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
+﻿import { type FormEvent, type ReactNode, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { LogOut, Save, Settings } from 'lucide-react';
 
@@ -70,13 +70,13 @@ export function ProfilePage() {
 
   return (
     <div className="space-y-5">
-      <section className="flex items-start justify-between gap-4 rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+      <section className="flex items-start justify-between gap-4 rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
         <div className="min-w-0">
-          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Operador</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Operador</p>
           <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Perfil</h1>
           <p className="mt-2 truncate text-sm font-medium text-white/70">{user?.email}</p>
         </div>
-        <Link to="/settings" className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1B4332] hover:bg-[#D4A373]`}>
+        <Link to="/settings" className={`${buttonVariants({ variant: 'secondary', size: 'sm' })} border-white bg-white text-[#1E3A2F] hover:bg-[#C8A951]`}>
           <Settings className="h-4 w-4" />
           Configurações
         </Link>

@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react';
+﻿import type { ChangeEvent } from 'react';
 import { Search } from 'lucide-react';
 
 import { Input } from '@/components/ui/input';
@@ -34,7 +34,7 @@ export function ClientsFilters({
   };
 
   return (
-    <div className="space-y-3 rounded-xl border-2 border-[#1B4332]/20 bg-[#F3F5F0] p-3">
+    <div className="space-y-3 rounded-xl border-2 border-[#1E3A2F]/20 bg-[#F8F9F7] p-3">
       <div className="relative">
         <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <Input

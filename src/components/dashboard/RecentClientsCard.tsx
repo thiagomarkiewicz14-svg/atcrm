@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -22,7 +22,7 @@ export function RecentClientsCard({ clients }: RecentClientsCardProps) {
       </CardHeader>
       <CardContent className="space-y-3">
         {clients.length === 0 ? (
-          <p className="rounded-lg border-2 border-dashed border-[#1B4332]/20 bg-background p-4 text-sm font-medium text-muted-foreground">
+          <p className="rounded-lg border-2 border-dashed border-[#1E3A2F]/20 bg-background p-4 text-sm font-medium text-muted-foreground">
             Nenhum alvo cadastrado ainda.
           </p>
         ) : (
@@ -30,7 +30,7 @@ export function RecentClientsCard({ clients }: RecentClientsCardProps) {
             <Link
               key={client.id}
               to={`/clients/${client.id}`}
-              className="block rounded-lg border-2 border-[#1B4332]/20 bg-background p-4 transition-colors duration-150 hover:border-primary/30 hover:bg-white"
+              className="block rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-4 transition-colors duration-150 hover:border-primary/30 hover:bg-white"
             >
               <p className="line-clamp-1 text-sm font-black uppercase tracking-[0.02em]">{client.name}</p>
               <p className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">

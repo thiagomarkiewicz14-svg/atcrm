@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from 'react';
+﻿import { type FormEvent, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Logo } from '@/components/brand/Logo';
@@ -32,8 +32,8 @@ export function ForgotPasswordPage() {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-4 py-10">
-      <Card className="w-full max-w-md overflow-hidden border-[#1B4332] bg-[#F3F5F0]">
-        <CardHeader className="border-b-2 border-[#1B4332] bg-[#1B4332] text-white">
+      <Card className="w-full max-w-md overflow-hidden border-[#1E3A2F] bg-[#F8F9F7]">
+        <CardHeader className="border-b-2 border-[#1E3A2F] bg-[#1E3A2F] text-white">
           <Logo variant="full" className="mb-4 text-white [&_span:first-child]:border-white/20 [&_span:first-child]:bg-white/10 [&_span:last-child_span:last-child]:text-white/65" />
           <CardTitle className="text-2xl">Recuperar acesso</CardTitle>
           <p className="text-sm font-medium text-white/70">Informe seu email para voltar à operação.</p>
@@ -64,7 +64,7 @@ export function ForgotPasswordPage() {
               {isSubmitting ? 'Enviando...' : 'Recuperar acesso'}
             </Button>
 
-            <Link to="/login" className="block border-t-2 border-[#1B4332]/20 pt-4 text-sm font-black uppercase tracking-[0.08em] text-primary hover:underline">
+            <Link to="/login" className="block border-t-2 border-[#1E3A2F]/20 pt-4 text-sm font-black uppercase tracking-[0.08em] text-primary hover:underline">
               Voltar para login
             </Link>
           </form>

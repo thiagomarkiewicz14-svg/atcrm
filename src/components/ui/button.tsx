@@ -1,4 +1,4 @@
-import * as React from 'react';
+﻿import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
@@ -8,12 +8,12 @@ export const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-[#1B4332]',
+        default: 'bg-[#1E3A2F] text-primary-foreground hover:bg-primary',
         secondary: 'border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-white',
         destructive: 'bg-destructive text-destructive-foreground hover:bg-[#9F2727]',
-        outline: 'border-2 border-[#1B4332]/25 bg-background text-[#1B4332] hover:border-primary hover:bg-primary/10',
-        ghost: 'text-muted-foreground hover:bg-[#1B4332]/10 hover:text-[#1B4332]',
-        link: 'min-h-0 rounded-none px-0 text-primary underline-offset-4 hover:text-[#1B4332] hover:underline active:translate-y-0',
+        outline: 'border-2 border-[#1E3A2F]/25 bg-background text-[#1E3A2F] hover:border-primary hover:bg-primary/10',
+        ghost: 'text-muted-foreground hover:bg-[#1E3A2F]/10 hover:text-[#1E3A2F]',
+        link: 'min-h-0 rounded-none px-0 text-primary underline-offset-4 hover:text-[#1E3A2F] hover:underline active:translate-y-0',
       },
       size: {
         default: 'h-11 px-5 py-2',

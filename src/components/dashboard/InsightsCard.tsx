@@ -1,4 +1,4 @@
-import { AlertTriangle, CheckCircle2, Clock3, FileText, Sprout } from 'lucide-react';
+﻿import { AlertTriangle, CheckCircle2, Clock3, FileText, Sprout } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { buildFieldInsights } from '@/lib/portfolio-insights';
@@ -30,11 +30,11 @@ export function InsightsCard({
   const isHealthy = insights.riskClients === 0 && insights.overdueVisits === 0;
 
   return (
-    <Card className="border-[#1B4332]/25 bg-[#F3F5F0]">
+    <Card className="border-[#1E3A2F]/25 bg-[#F8F9F7]">
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <CardTitle className="text-[#1B4332]">INSIGHTS DO CAMPO</CardTitle>
+            <CardTitle className="text-[#1E3A2F]">INSIGHTS DO CAMPO</CardTitle>
             <p className="mt-2 text-sm font-medium text-muted-foreground">
               Sinais rápidos da carteira para o dia de operação.
             </p>
@@ -110,10 +110,10 @@ function InsightMetric({
     <div className={cn('rounded-lg border-2 bg-background p-4', getToneClassName(tone), className)}>
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-2xl font-black leading-none text-[#1B4332]">{value}</p>
+          <p className="text-2xl font-black leading-none text-[#1E3A2F]">{value}</p>
           <p className="mt-2 text-xs font-black uppercase tracking-[0.08em] text-muted-foreground">{label}</p>
         </div>
-        <Icon className={cn('h-5 w-5', tone === 'risk' ? 'text-[#C53030]' : 'text-[#1B4332]')} />
+        <Icon className={cn('h-5 w-5', tone === 'risk' ? 'text-[#C53030]' : 'text-[#1E3A2F]')} />
       </div>
       <p className="mt-3 text-xs font-medium text-muted-foreground">{detail}</p>
     </div>
@@ -130,8 +130,8 @@ function getToneClassName(tone: 'risk' | 'healthy' | 'opportunity' | 'neutral') 
   }
 
   if (tone === 'opportunity') {
-    return 'border-[#D4A373]/40';
+    return 'border-[#C8A951]/40';
   }
 
-  return 'border-[#1B4332]/20';
+  return 'border-[#1E3A2F]/20';
 }

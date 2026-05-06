@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 import { Bell, CheckCheck } from 'lucide-react';
 
 import { EmptyState } from '@/components/shared/EmptyState';
@@ -33,9 +33,9 @@ export function NotificationsPage() {
 
   return (
     <div className="space-y-5">
-      <section className="flex items-start justify-between gap-4 rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+      <section className="flex items-start justify-between gap-4 rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#D4A373]">Pressão operacional</p>
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">Pressão operacional</p>
           <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">Alertas</h1>
           <p className="mt-2 text-sm font-medium text-white/70">
             {unreadCount} pendente{unreadCount === 1 ? '' : 's'} para ação.
@@ -47,7 +47,7 @@ export function NotificationsPage() {
           size="sm"
           onClick={() => markAllAsRead.mutate()}
           disabled={unreadCount === 0 || markAllAsRead.isPending}
-          className="border-white bg-white text-[#1B4332] hover:bg-[#D4A373]"
+          className="border-white bg-white text-[#1E3A2F] hover:bg-[#C8A951]"
         >
           <CheckCheck className="h-4 w-4" />
           Marcar todas

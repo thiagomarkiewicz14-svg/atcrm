@@ -1,7 +1,9 @@
-import { Logo } from '@/components/brand/Logo';
+﻿import { Logo } from '@/components/brand/Logo';
 import { ClientsWithoutRecentVisitCard } from '@/components/dashboard/ClientsWithoutRecentVisitCard';
+import { DailySummaryCard } from '@/components/dashboard/DailySummaryCard';
 import { DashboardAlertsCard } from '@/components/dashboard/DashboardAlertsCard';
 import { DashboardKpiGrid } from '@/components/dashboard/DashboardKpiGrid';
+import { InsightsCard } from '@/components/dashboard/InsightsCard';
 import { QuickActionsCard } from '@/components/dashboard/QuickActionsCard';
 import { RecentClientsCard } from '@/components/dashboard/RecentClientsCard';
 import { SmartRouteCard } from '@/components/dashboard/SmartRouteCard';
@@ -17,7 +19,9 @@ import {
   useTodayAgenda,
   useUpcomingWeekAgenda,
 } from '@/hooks/useDashboard';
+import { useClients } from '@/hooks/useClients';
 import { useProfile } from '@/hooks/useProfile';
+import { useVisits } from '@/hooks/useVisits';
 
 const dayFormatter = new Intl.DateTimeFormat('pt-BR', {
   weekday: 'long',
@@ -33,6 +37,8 @@ export function DashboardPage() {
   const alertsQuery = useDashboardAlerts();
   const clientsWithoutRecentVisitQuery = useClientsWithoutRecentVisit();
   const recentClientsQuery = useRecentClients();
+  const clientsQuery = useClients();
+  const visitsQuery = useVisits();
 
   const isLoading =
     summaryQuery.isLoading ||
@@ -40,7 +46,9 @@ export function DashboardPage() {
     upcomingWeekAgendaQuery.isLoading ||
     alertsQuery.isLoading ||
     clientsWithoutRecentVisitQuery.isLoading ||
-    recentClientsQuery.isLoading;
+    recentClientsQuery.isLoading ||
+    clientsQuery.isLoading ||
+    visitsQuery.isLoading;
 
   if (isLoading) {
     return <LoadingState />;
@@ -52,7 +60,9 @@ export function DashboardPage() {
     upcomingWeekAgendaQuery.error ??
     alertsQuery.error ??
     clientsWithoutRecentVisitQuery.error ??
-    recentClientsQuery.error;
+    recentClientsQuery.error ??
+    clientsQuery.error ??
+    visitsQuery.error;
 
   if (error) {
     return (
@@ -65,12 +75,18 @@ export function DashboardPage() {
           void alertsQuery.refetch();
           void clientsWithoutRecentVisitQuery.refetch();
           void recentClientsQuery.refetch();
+          void clientsQuery.refetch();
+          void visitsQuery.refetch();
         }}
       />
     );
   }
 
   const firstName = profileQuery.data?.full_name?.split(' ')[0];
+  const clients = clientsQuery.data ?? [];
+  const visits = visitsQuery.data ?? [];
+  const clientsWithoutRecentVisit = clientsWithoutRecentVisitQuery.data ?? [];
+  const recentClients = recentClientsQuery.data ?? [];
   const alerts = alertsQuery.data ?? {
     unreadNotificationsCount: 0,
     activeNotificationsCount: 0,
@@ -79,11 +95,11 @@ export function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-xl border-2 border-[#1B4332] bg-[#1B4332] p-5 text-white">
+      <section className="relative overflow-hidden rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
         <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.45)_1px,transparent_1px)] [background-size:22px_22px]" />
         <div className="relative">
           <Logo variant="compact" className="mb-5 text-white [&_span:first-child]:border-white/20 [&_span:first-child]:bg-white/10 [&_span:last-child]:text-white" />
-          <p className="text-xs font-black uppercase tracking-[0.14em] text-[#D4A373]">{dayFormatter.format(new Date())}</p>
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-[#C8A951]">{dayFormatter.format(new Date())}</p>
           <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">
             {firstName ? `Campo agora, ${firstName}` : 'Campo agora'}
           </h1>
@@ -92,6 +108,15 @@ export function DashboardPage() {
           </p>
         </div>
       </section>
+
+      <DailySummaryCard
+        operatorName={profileQuery.data?.full_name}
+        clients={clients}
+        visits={visits}
+        clientsWithoutRecentVisit={clientsWithoutRecentVisit}
+        recentClients={recentClients}
+        overdueNextVisits={alerts.overdueNextVisits}
+      />
 
       <DashboardKpiGrid
         summary={
@@ -104,11 +129,18 @@ export function DashboardPage() {
         }
       />
 
+      <InsightsCard
+        clients={clients}
+        visits={visits}
+        clientsWithoutRecentVisit={clientsWithoutRecentVisit}
+        overdueNextVisits={alerts.overdueNextVisits}
+      />
+
       <TodayAgendaCard events={todayAgendaQuery.data ?? []} />
 
       <SmartRouteCard
-        clientsWithoutRecentVisit={clientsWithoutRecentVisitQuery.data ?? []}
-        recentClients={recentClientsQuery.data ?? []}
+        clientsWithoutRecentVisit={clientsWithoutRecentVisit}
+        recentClients={recentClients}
         overdueNextVisits={alerts.overdueNextVisits}
       />
 
@@ -116,9 +148,9 @@ export function DashboardPage() {
 
       <UpcomingVisitsCard events={upcomingWeekAgendaQuery.data ?? []} />
 
-      <ClientsWithoutRecentVisitCard clients={clientsWithoutRecentVisitQuery.data ?? []} />
+      <ClientsWithoutRecentVisitCard clients={clientsWithoutRecentVisit} />
 
-      <RecentClientsCard clients={recentClientsQuery.data ?? []} />
+      <RecentClientsCard clients={recentClients} />
 
       <QuickActionsCard />
     </div>

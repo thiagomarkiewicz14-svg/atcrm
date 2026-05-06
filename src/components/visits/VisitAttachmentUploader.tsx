@@ -1,4 +1,4 @@
-import { type ChangeEvent, useRef, useState } from 'react';
+﻿import { type ChangeEvent, useRef, useState } from 'react';
 import { FileUp, Trash2 } from 'lucide-react';
 
 import { ErrorState } from '@/components/shared/ErrorState';
@@ -72,7 +72,7 @@ export function VisitAttachmentUploader({
       {localError ? <ErrorState error={new Error(localError)} /> : null}
 
       {pendingFiles.length > 0 ? (
-        <div className="space-y-2 rounded-lg border-2 border-[#1B4332]/20 bg-background p-3">
+        <div className="space-y-2 rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-3">
           <p className="text-xs font-black uppercase tracking-[0.08em]">Arquivos para enviar ao salvar</p>
           {pendingFiles.map((file, index) => (
             <div key={`${file.name}-${file.size}-${index}`} className="flex items-center justify-between gap-3 text-sm">

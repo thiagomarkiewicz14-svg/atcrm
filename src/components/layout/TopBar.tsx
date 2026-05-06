@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+﻿import { Link, useLocation } from 'react-router-dom';
 import { Bell, UserRound } from 'lucide-react';
 
 import { Logo } from '@/components/brand/Logo';
@@ -15,14 +15,14 @@ export function TopBar() {
   const title = getPageTitle(location.pathname);
 
   return (
-    <header className="sticky top-0 z-20 border-b-2 border-[#1B4332]/20 bg-[#F8F9F7]/95 backdrop-blur">
+    <header className="sticky top-0 z-20 border-b-2 border-[#1E3A2F]/20 bg-[#F8F9F7]/95 backdrop-blur">
       <div className="flex h-16 items-center gap-3 px-4 sm:px-6 lg:px-8">
         <Link to="/" className="shrink-0 md:hidden" aria-label="ATC CRM">
           <Logo variant="compact" />
         </Link>
 
         <div className="min-w-0 flex-1">
-          <h1 className="truncate text-sm font-black uppercase tracking-[0.12em] text-[#1B4332]">{title}</h1>
+          <h1 className="truncate text-sm font-black uppercase tracking-[0.12em] text-[#1E3A2F]">{title}</h1>
         </div>
 
         <Link
