@@ -13,7 +13,7 @@ export function Sidebar() {
   return (
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-72 flex-col bg-[#1E3A2F] px-4 py-5 text-white md:flex">
       <NavLink to="/" className="mb-8 flex items-center gap-3 rounded-2xl px-2 py-1" aria-label="ATC CRM">
-        <Logo variant="full" className="text-white [&_span:last-child_span:last-child]:text-white/65" />
+        <Logo variant="compact" />
       </NavLink>
 
       <nav className="space-y-2">
