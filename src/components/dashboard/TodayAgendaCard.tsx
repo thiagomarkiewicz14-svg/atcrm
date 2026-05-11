@@ -15,7 +15,7 @@ interface TodayAgendaCardProps {
 
 export function TodayAgendaCard({ events }: TodayAgendaCardProps) {
   return (
-    <Card className="border-[#1E3A2F] bg-[#1E3A2F] text-white">
+    <Card className="border-[#1E3A2F] bg-[#1E3A2F] text-white shadow-[0_12px_30px_rgba(30,58,47,0.14)]">
       <CardHeader>
         <div className="flex items-center justify-between gap-3">
           <CardTitle>Hoje no campo</CardTitle>
@@ -26,7 +26,7 @@ export function TodayAgendaCard({ events }: TodayAgendaCardProps) {
       </CardHeader>
       <CardContent className="space-y-3">
         {events.length === 0 ? (
-          <p className="rounded-lg border border-white/20 bg-white/10 p-4 text-sm font-medium text-white/70">
+          <p className="rounded-xl border border-white/20 bg-white/[0.08] p-4 text-sm font-medium text-white/70">
             Nenhuma visita marcada. Use a janela livre para recuperar carteira sem contato.
           </p>
         ) : (
@@ -51,7 +51,7 @@ export function DashboardAgendaItem({
 
   if (isAlert) {
     return (
-      <div className="rounded-lg border-2 border-[#1E3A2F]/15 bg-[#F8F9F7] p-4 transition-colors duration-150">
+      <div className="rounded-xl border border-[#1E3A2F]/15 bg-[#F8F9F7] p-4 transition-colors duration-150">
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 space-y-1.5">
             <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.08em] text-[#C53030]">
@@ -98,7 +98,7 @@ export function DashboardAgendaItem({
   return (
     <div
       className={cn(
-        'rounded-lg border-2 p-4 transition-colors duration-150',
+        'rounded-xl border p-4 transition-colors duration-150',
         isNextVisit ? 'border-[#C8A951] bg-[#C8A951]/15' : 'border-white/20 bg-white/10',
       )}
     >

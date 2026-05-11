@@ -10,6 +10,7 @@ export type VisitType =
 export type VisitStatus = 'scheduled' | 'completed' | 'canceled';
 
 export type VisitAttachmentType = 'image' | 'video' | 'audio' | 'document' | 'other';
+export type VisitAttachmentTranscriptStatus = 'processing' | 'completed' | 'failed';
 
 export interface VisitClientSummary {
   id: string;
@@ -36,6 +37,10 @@ export interface VisitAttachment {
   mime_type: string | null;
   file_size: number | null;
   caption: string | null;
+  transcript_text: string | null;
+  transcript_status: VisitAttachmentTranscriptStatus | null;
+  transcript_error: string | null;
+  transcript_generated_at: string | null;
   created_at: string;
 }
 

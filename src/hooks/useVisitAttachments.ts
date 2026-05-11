@@ -40,3 +40,18 @@ export function useDeleteVisitAttachment() {
     },
   });
 }
+
+export function useTranscribeVisitAudio() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (attachmentId: string) => visitAttachmentsService.transcribeVisitAudio(attachmentId),
+    onSuccess: (attachment) => {
+      void queryClient.invalidateQueries({ queryKey: ['visit-attachments', attachment.visit_id] });
+      void queryClient.invalidateQueries({ queryKey: ['visits'] });
+    },
+    onSettled: () => {
+      void queryClient.invalidateQueries({ queryKey: ['visit-attachments'] });
+    },
+  });
+}

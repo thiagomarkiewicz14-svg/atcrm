@@ -22,7 +22,7 @@ export function QuickActionsCard() {
             <Link
               key={action.to}
               to={action.to}
-              className="group flex min-h-24 flex-col justify-between rounded-lg border-2 border-white/20 bg-white/10 p-4 transition-colors hover:border-[#C8A951]"
+              className="group flex min-h-24 flex-col justify-between rounded-xl border border-white/20 bg-white/[0.08] p-4 transition-colors duration-200 hover:border-[#C8A951] hover:bg-white/10"
             >
               <action.icon className="h-5 w-5 text-[#C8A951]" />
               <span>

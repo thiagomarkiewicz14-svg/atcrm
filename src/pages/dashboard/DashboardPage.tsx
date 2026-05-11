@@ -95,17 +95,28 @@ export function DashboardPage() {
 
   return (
     <div className="space-y-6">
-      <section className="relative overflow-hidden rounded-xl border-2 border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white">
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/2 opacity-20 [background-image:linear-gradient(135deg,rgba(255,255,255,.45)_1px,transparent_1px)] [background-size:22px_22px]" />
-        <div className="relative">
-          <Logo variant="compact" className="mb-5 text-white [&_span:first-child]:border-white/20 [&_span:first-child]:bg-white/10 [&_span:last-child]:text-white" />
-          <p className="text-xs font-black uppercase tracking-[0.14em] text-[#C8A951]">{dayFormatter.format(new Date())}</p>
-          <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em]">
+      <section className="relative overflow-hidden rounded-2xl border border-[#1E3A2F] bg-[#1E3A2F] p-5 text-white shadow-[0_18px_48px_rgba(30,58,47,0.14)] sm:p-6">
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-2/3 opacity-20 [background-image:linear-gradient(135deg,rgba(248,249,247,.45)_1px,transparent_1px)] [background-size:24px_24px]" />
+        <div className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full border border-[#C8A951]/20" />
+        <div className="relative max-w-3xl">
+          <Logo variant="compact" className="mb-5" />
+          <p className="text-xs font-black uppercase tracking-[0.16em] text-[#C8A951]">{dayFormatter.format(new Date())}</p>
+          <h1 className="mt-2 text-3xl font-black uppercase leading-tight tracking-[0.04em] sm:text-4xl">
             {firstName ? `Campo agora, ${firstName}` : 'Campo agora'}
           </h1>
           <p className="mt-3 max-w-xl text-sm font-medium leading-6 text-white/70">
             Prioridade, risco e deslocamento. Abra o que precisa de ação antes de perder janela no campo.
           </p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {['Rota crítica', 'Carteira própria', 'Alertas vivos'].map((label) => (
+              <span
+                key={label}
+                className="rounded-full border border-white/20 bg-white/[0.08] px-3 py-1.5 text-[0.65rem] font-black uppercase tracking-[0.12em] text-white/75"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 

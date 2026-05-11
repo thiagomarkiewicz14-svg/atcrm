@@ -10,7 +10,7 @@ export function AppShell() {
       <Sidebar />
       <div className="min-h-screen md:pl-72">
         <TopBar />
-        <main className="mx-auto w-full max-w-6xl px-4 pb-28 pt-6 sm:px-6 md:pb-10 lg:px-8">
+        <main className="mx-auto w-full max-w-6xl px-4 pb-28 pt-5 sm:px-6 md:pb-10 md:pt-7 lg:px-8">
           <Outlet />
         </main>
         <BottomNav />

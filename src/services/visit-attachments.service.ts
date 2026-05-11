@@ -73,4 +73,27 @@ export const visitAttachmentsService = {
 
     await storageService.removeFile(data.storage_path);
   },
+
+  async transcribeVisitAudio(attachmentId: string): Promise<VisitAttachment> {
+    const { data, error } = await supabase.functions.invoke<{
+      attachment?: VisitAttachment;
+      error?: string;
+    }>('transcribe-visit-audio', {
+      body: { attachmentId },
+    });
+
+    if (error) {
+      throw error;
+    }
+
+    if (data?.error) {
+      throw new Error(data.error);
+    }
+
+    if (!data?.attachment) {
+      throw new Error('Nao foi possivel obter a transcricao do audio.');
+    }
+
+    return data.attachment;
+  },
 };

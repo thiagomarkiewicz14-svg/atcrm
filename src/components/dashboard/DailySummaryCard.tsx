@@ -50,14 +50,14 @@ export function DailySummaryCard({
               Resumo diário para priorizar carteira, visita e recuperação.
             </p>
           </div>
-          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border-2 border-[#C8A951]/40 bg-[#C8A951]/20 text-[#7C5E3C]">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#C8A951]/45 bg-[#C8A951]/20 text-[#1E3A2F]">
             <SunMedium className="h-5 w-5" />
           </span>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
         {isEmpty ? (
-          <p className="rounded-lg border-2 border-dashed border-[#1E3A2F]/20 bg-background p-4 text-sm font-bold text-[#1E3A2F]">
+          <p className="rounded-xl border border-dashed border-[#1E3A2F]/25 bg-background p-4 text-sm font-bold text-[#1E3A2F]">
             Carteira sob controle hoje.
           </p>
         ) : (
@@ -105,7 +105,7 @@ export function DailySummaryCard({
 
 function DailyMetric({ label, value, tone }: { label: string; value: number; tone: 'risk' | 'field' | 'opportunity' }) {
   return (
-    <div className="rounded-lg border-2 border-[#1E3A2F]/20 bg-background p-3">
+    <div className="rounded-xl border border-[#1E3A2F]/20 bg-background p-3 shadow-[inset_0_1px_0_rgba(200,169,81,0.12)]">
       <p className={tone === 'risk' ? 'text-2xl font-black text-[#C53030]' : 'text-2xl font-black text-[#1E3A2F]'}>
         {value}
       </p>

@@ -4,7 +4,7 @@ import { File, FileAudio, FileText, FileVideo, ImageIcon, Trash2 } from 'lucide-
 import { ErrorState } from '@/components/shared/ErrorState';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { useDeleteVisitAttachment } from '@/hooks/useVisitAttachments';
+import { useDeleteVisitAttachment, useTranscribeVisitAudio } from '@/hooks/useVisitAttachments';
 import { storageService } from '@/services/storage.service';
 import type { VisitAttachment } from '@/types/visit.types';
 
@@ -14,8 +14,11 @@ interface VisitAttachmentGridProps {
 
 export function VisitAttachmentGrid({ attachments }: VisitAttachmentGridProps) {
   const deleteAttachment = useDeleteVisitAttachment();
+  const transcribeAudio = useTranscribeVisitAudio();
   const [signedUrls, setSignedUrls] = useState<Record<string, string>>({});
   const [error, setError] = useState<string | null>(null);
+  const [transcribingAttachmentId, setTranscribingAttachmentId] = useState<string | null>(null);
+  const [transcriptionError, setTranscriptionError] = useState<string | null>(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -51,6 +54,21 @@ export function VisitAttachmentGrid({ attachments }: VisitAttachmentGridProps) {
     await deleteAttachment.mutateAsync(attachment.id);
   };
 
+  const handleTranscribe = async (attachment: VisitAttachment) => {
+    setTranscriptionError(null);
+    setTranscribingAttachmentId(attachment.id);
+
+    try {
+      await transcribeAudio.mutateAsync(attachment.id);
+    } catch (caughtError) {
+      setTranscriptionError(
+        caughtError instanceof Error ? caughtError.message : 'Nao foi possivel transcrever o audio.',
+      );
+    } finally {
+      setTranscribingAttachmentId(null);
+    }
+  };
+
   if (attachments.length === 0) {
     return <p className="text-sm text-muted-foreground">Nenhum anexo enviado.</p>;
   }
@@ -59,10 +77,16 @@ export function VisitAttachmentGrid({ attachments }: VisitAttachmentGridProps) {
     <div className="space-y-3">
       {error ? <ErrorState error={new Error(error)} /> : null}
       {deleteAttachment.isError ? <ErrorState error={deleteAttachment.error} /> : null}
+      {transcriptionError ? <ErrorState error={new Error(transcriptionError)} /> : null}
 
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {attachments.map((attachment) => {
           const signedUrl = signedUrls[attachment.storage_path];
+          const isAudio = attachment.file_type === 'audio';
+          const isTranscribing =
+            attachment.transcript_status === 'processing' || transcribingAttachmentId === attachment.id;
+          const hasCompletedTranscript =
+            attachment.transcript_status === 'completed' && Boolean(attachment.transcript_text?.trim());
 
           return (
             <Card key={attachment.id}>
@@ -79,6 +103,10 @@ export function VisitAttachmentGrid({ attachments }: VisitAttachmentGridProps) {
                   </div>
                 )}
 
+                {isAudio && signedUrl ? (
+                  <audio src={signedUrl} controls className="w-full" />
+                ) : null}
+
                 <div className="space-y-1">
                   <p className="truncate text-sm font-medium">{attachment.file_name ?? 'Arquivo'}</p>
                   <p className="text-xs text-muted-foreground">{formatFileSize(attachment.file_size)}</p>
@@ -89,6 +117,17 @@ export function VisitAttachmentGrid({ attachments }: VisitAttachmentGridProps) {
                     <a href={signedUrl} target="_blank" rel="noreferrer" className="text-sm font-semibold text-primary">
                       Abrir
                     </a>
+                  ) : null}
+                  {isAudio && !hasCompletedTranscript ? (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleTranscribe(attachment)}
+                      disabled={isTranscribing || transcribeAudio.isPending}
+                    >
+                      {isTranscribing ? 'Transcrevendo...' : 'Transcrever audio'}
+                    </Button>
                   ) : null}
                   <Button
                     type="button"
@@ -102,6 +141,8 @@ export function VisitAttachmentGrid({ attachments }: VisitAttachmentGridProps) {
                     Remover
                   </Button>
                 </div>
+
+                {isAudio ? <AudioTranscript attachment={attachment} /> : null}
               </CardContent>
             </Card>
           );
@@ -109,6 +150,40 @@ export function VisitAttachmentGrid({ attachments }: VisitAttachmentGridProps) {
       </div>
     </div>
   );
+}
+
+function AudioTranscript({ attachment }: { attachment: VisitAttachment }) {
+  if (attachment.transcript_status === 'processing') {
+    return (
+      <p className="rounded-lg border border-[#C8A951]/40 bg-[#C8A951]/15 p-3 text-sm font-medium text-[#1E3A2F]">
+        Transcrevendo audio...
+      </p>
+    );
+  }
+
+  if (attachment.transcript_status === 'failed') {
+    return (
+      <div className="rounded-lg border border-destructive/30 bg-destructive/10 p-3">
+        <p className="text-xs font-black uppercase tracking-[0.08em] text-destructive">Falha na transcricao</p>
+        <p className="mt-1 text-sm text-destructive">
+          {attachment.transcript_error ?? 'Nao foi possivel transcrever este audio.'}
+        </p>
+      </div>
+    );
+  }
+
+  if (attachment.transcript_status === 'completed' && attachment.transcript_text) {
+    return (
+      <div className="rounded-lg border border-[#1E3A2F]/20 bg-background p-3">
+        <p className="text-xs font-black uppercase tracking-[0.08em] text-[#1E3A2F]">Transcricao</p>
+        <p className="mt-2 whitespace-pre-wrap text-sm leading-6 text-muted-foreground">
+          {attachment.transcript_text}
+        </p>
+      </div>
+    );
+  }
+
+  return null;
 }
 
 function AttachmentIcon({ fileType }: { fileType: VisitAttachment['file_type'] }) {

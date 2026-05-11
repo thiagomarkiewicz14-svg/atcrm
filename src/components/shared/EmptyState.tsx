@@ -14,11 +14,13 @@ export function EmptyState({ title, description, action, className }: EmptyState
   return (
     <div
       className={cn(
-        'flex min-h-48 flex-col items-center justify-center gap-4 rounded-xl border-2 border-dashed border-[#1E3A2F]/25 bg-[#F8F9F7] p-6 text-center',
+        'flex min-h-48 flex-col items-center justify-center gap-4 rounded-2xl border border-dashed border-[#1E3A2F]/30 bg-[#F8F9F7] p-6 text-center shadow-[inset_0_1px_0_rgba(200,169,81,0.16)]',
         className,
       )}
     >
-      <Inbox className="h-8 w-8 text-primary" />
+      <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#C8A951]/40 bg-[#C8A951]/15 text-[#1E3A2F]">
+        <Inbox className="h-6 w-6" />
+      </span>
       <div className="space-y-1">
         <h2 className="text-base font-black uppercase tracking-[0.04em]">{title}</h2>
         {description ? <p className="text-sm text-muted-foreground">{description}</p> : null}

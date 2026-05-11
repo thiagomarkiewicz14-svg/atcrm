@@ -33,14 +33,14 @@ export function Logo({ variant = 'full', className }: LogoProps) {
   if (variant === 'compact') {
     return (
       <span className={cn('inline-flex items-center', className)} aria-label="ATC CRM">
-        <img src={symbolSrc} alt="" className="h-10 w-auto max-w-[8.5rem] object-contain" aria-hidden="true" />
+        <img src={symbolSrc} alt="" className="h-12 w-auto max-w-[11.5rem] object-contain" aria-hidden="true" />
       </span>
     );
   }
 
   return (
     <span className={cn('inline-flex items-center', className)} aria-label="ATC CRM">
-      <img src={logoSrc} alt="" className="h-12 w-auto max-w-[13rem] object-contain" aria-hidden="true" />
+      <img src={logoSrc} alt="" className="h-16 w-auto max-w-[16rem] object-contain" aria-hidden="true" />
     </span>
   );
 }
